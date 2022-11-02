@@ -1,13 +1,13 @@
-import { Navigate } from 'react-router-dom'
-import { publicPaths } from 'config/routes'
-import Layout from 'components/Layout'
+import { Navigate } from "react-router-dom";
+import { publicPaths } from "config/routes";
+import Layout from "components/Layout";
 
 const PrivateRoute = ({ children, setRole }) => {
-  if (!localStorage.getItem('access_token')) {
-    return <Navigate to={publicPaths.login} replace />
+  if (!localStorage.getItem("access_token")) {
+    return <Navigate to={publicPaths.login} replace />;
   }
 
-  return <Layout setRole={setRole}>{children}</Layout>
-}
+  return <Layout setRole={setRole}>{children}</Layout>;
+};
 
-export default PrivateRoute
+export default PrivateRoute;
