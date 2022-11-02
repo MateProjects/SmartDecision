@@ -1,14 +1,12 @@
-import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { publicPaths, privatePaths } from 'config/routes'
+import { lazy, Suspense } from "react";
+import { Routes, Route, Navigate } from "react-router";
+import { publicPaths, privatePaths } from "../config/routes/routes";
 
-import authStore from 'pages/LoginPage/store'
+import PrivateRoute from "./PrivateRoutes/PrivateRoutes";
+import PublicRoute from "./PublicRoutes/PublicRoutes";
+import LinearProgress from "@mui/material/LinearProgress";
 
-import PrivateRoute from 'core/PrivateRoute'
-import PublicRoute from 'core/PublicRoute'
-import LinearProgress from '@mui/material/LinearProgress'
-
-// const LoginPage = lazy(() => import('pages/LoginPage'))
+const SignIn = lazy(() => import("../levels/signInSignUp/SignIn/SignIn"));
 // const SubFranchiseesPage = lazy(() =>
 //   import('pages/Franchisee/SubFranshiseesPage')
 // )
@@ -60,7 +58,7 @@ import LinearProgress from '@mui/material/LinearProgress'
 //   import('pages/SubFranshisee/Gifts/SubFranshiseeGiftDetailPage')
 // )
 
-// const publicRoutes = [{ path: publicPaths.login, Component: <LoginPage /> }]
+const publicRoutes = [{ path: publicPaths.login, Component: <SignIn /> }];
 
 const privateRoutes = {
   tenant: [
@@ -115,9 +113,9 @@ const privateRoutes = {
     //   Component: <NotificationsData />
     // },
     {
-      path: '*',
-      Component: <NotExistingPage />
-    }
+      path: "*",
+      // Component: <NotExistingPage />
+    },
   ],
   group: [
     // {
@@ -137,9 +135,9 @@ const privateRoutes = {
     //   Component: <SubFranshiseeGiftDetailsPage />
     // },
     {
-      path: '*',
-      Component: <NotExistingPage />
-    }
+      path: "*",
+      // Component: <NotExistingPage />
+    },
   ],
   admin: [],
   user: [
@@ -148,30 +146,31 @@ const privateRoutes = {
     //   Component: <FileFolderPage />
     // },
     {
-      path: '*',
-      Component: <NotExistingPage />
-    }
-  ]
-}
+      path: "*",
+      // Component: <NotExistingPage />
+    },
+  ],
+};
 
-console.log('Alex')
+console.log("Alex");
 
 const App = () => {
-  const {
-    user: { type }
-  } = authStore
-  const role = type?.replace(/\s/g, '')?.toLowerCase() || 'franchisee'
+  // const {
+  //   user: { type },
+  // } = authStore;
+  const type = "user";
+  const role = type?.replace(/\s/g, "")?.toLowerCase() || "franchisee";
   return (
     <Suspense fallback={<LinearProgress />}>
       <Routes>
-        {privateRoutes?.[role]?.map(route => (
+        {privateRoutes?.[role]?.map((route) => (
           <Route
             key={route.path}
             path={route.path}
             element={<PrivateRoute>{route.Component}</PrivateRoute>}
           />
         ))}
-        {publicRoutes.map(route => (
+        {publicRoutes.map((route) => (
           <Route
             key={route.path}
             path={route.path}
@@ -186,7 +185,7 @@ const App = () => {
         />
       </Routes>
     </Suspense>
-  )
-}
+  );
+};
 
-export default App
+export default App;

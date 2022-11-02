@@ -1,0 +1,161 @@
+.signIn-page {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.logo-block {
+  position: relative;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+  left: 130px;
+  top: -100px;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.logo-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  text-decoration: none;
+}
+
+.logo-signin-picture {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-signin-text {
+  margin: 0;
+  color: #0a0b0b;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.signUp-page__left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.signIn-page__helper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.signIn-page__article {
+  margin: 0;
+
+  font-family: Mulish, 'sans-serif';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  color: #1aaa8d;
+}
+
+.signIn-page__article--mgb {
+  margin-bottom: 45px;
+}
+
+.signIn-page__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signIn-page__icons--mgb {
+  margin-bottom: 45px;
+}
+
+.signIn-page__facebook-icon {
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.signIn-page__sugetion {
+  margin: 0;
+
+  font-family: Mulish;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #949494;
+}
+
+.signIn-page__text--mgb {
+  margin-bottom: 30px;
+}
+
+.group-items--mgb {
+  margin-bottom: 30px;
+}
+
+.signIn-page__restore-password {
+  margin: 30px 0 40px 0;
+  font-family: Mulish;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+
+  text-decoration: none;
+  color: #0a0b0b;
+}
+
+.signUp-page__signIn-link {
+  position: relative;
+}
+
+.signUp-decoration {
+  text-decoration: none;
+}
+
+.cube-signin {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 200px;
+  width: 200px;
+  background-image: url('../../figurs/cube-signin.png');
+  object-fit: cover;
+  object-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.angle-signin {
+  position: absolute;
+  left: 0;
+  top: 28%;
+  height: 200px;
+  width: 125px;
+  background-image: url('../../figurs/angle-signin.png');
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+}
+
+.ellips-signin {
+  --heightEllips: (100vh * 0.3);
+  --widthEllips: (100vh * 0.25);
+
+  position: absolute;
+  right: 0;
+  top: -1%;
+  height: calc(var(--heightEllips));
+  width: calc(var(--widthEllips));
+
+  border-radius: 1% 0 0 calc(var(--heightEllips));
+  background-color: #30B78D;;
+}

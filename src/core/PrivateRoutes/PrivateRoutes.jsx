@@ -1,6 +1,7 @@
-import { Navigate } from "react-router-dom";
-import { publicPaths } from "config/routes";
-import Layout from "components/Layout";
+import { Navigate } from "react-router";
+import { publicPaths } from "../../config/routes/routes";
+// import Layout from "components/Layout";
+import Layout from "../../conmponents/Layout/Layout";
 
 const PrivateRoute = ({ children, setRole }) => {
   if (!localStorage.getItem("access_token")) {

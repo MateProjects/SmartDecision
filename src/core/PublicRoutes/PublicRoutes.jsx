@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router-dom'
-import { privatePaths } from 'config/routes'
+import { Navigate } from 'react-router'
+import { privatePaths } from '../../config/routes/routes'
 
 const PublicRoute = ({ children }) => {
   if (localStorage.getItem('access_token') && localStorage.getItem('role')) {
