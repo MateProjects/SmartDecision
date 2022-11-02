@@ -154,6 +154,8 @@ const privateRoutes = {
   ]
 }
 
+console.log('Alex')
+
 const App = () => {
   const {
     user: { type }
