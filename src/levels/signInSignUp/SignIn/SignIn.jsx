@@ -6,10 +6,11 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 // import { twoField } from '../../components/Inputs/constants/constants';
 
-export const SignIn = () => {
+ const SignIn = () => {
+  console.log('sign in page loaded')
   return (
     <div className="signIn-page">
-      <p>{'Hello my amazing project'}</p>
+      {'Hello my amazing project'}
       {/* <div className="signUp-page__left-side">
         <div className="logo-block">
           <a href="/" className="logo-signin">
@@ -69,3 +70,5 @@ export const SignIn = () => {
     </div>
   );
 };
+
+export default SignIn

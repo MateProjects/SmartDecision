@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,9 +10,16 @@ import { PersistGate } from "redux-persist/integration/react";
 import theme from "./config/theme/theme";
 import App from "./core";
 
+
 import "./index.css";
 
-ReactDOM.render(
+const { createRoot } = ReactDOM
+
+const container = document.getElementById('root')
+
+const root = createRoot(container);
+
+root.render(
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
@@ -23,6 +30,5 @@ ReactDOM.render(
         </PersistGate>
       </Provider>
     </ThemeProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );
