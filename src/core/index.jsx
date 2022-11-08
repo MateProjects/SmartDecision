@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { publicPaths, privatePaths } from "../config/routes/routes";
 
 import PrivateRoute from "./PrivateRoutes/PrivateRoutes";

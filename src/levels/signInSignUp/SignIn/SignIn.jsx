@@ -1,74 +1,159 @@
-import React from 'react';
-// import './SignIn.css';
-// import Button from '@mui/material/Button';
-// import { SignInInputs } from '../../components/Inputs/SignInInputs/SignInInputs';
-// import { ReactSVG } from 'react-svg';
-// import { Link } from 'react-router-dom';
-// import { twoField } from '../../components/Inputs/constants/constants';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+import CustomField from "../../../conmponents/input/InputField";
+import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
+import { ReactSVG } from "react-svg";
+import EmailOutlinedIcon from "@mui/material";
+import LockOutlinedIcon from "@mui/material";
+import FacebookIcon from "../../../image/icons/FacebookIcon";
+import GoogleIcon from "../../../image/icons/GoogleIcon";
+import useStyles from "./styles";
+import ops from "../../../redux/auth/authOperations";
 
- const SignIn = () => {
-  console.log('sign in page loaded')
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as yup from "yup";
+
+const signInSchema = yup.object().shape({
+  username: yup.string().required("This field is required."),
+  password: yup
+    .string()
+    .min(6, "Password is too short.")
+    .max(20, "Password is too long.")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    )
+    .required("This field is required."),
+});
+
+const SignIn = () => {
+  const dispatch = useDispatch();
+  const classes = useStyles();
+
+  const initialValues = {
+    username: "",
+    password: "",
+  };
+
+  function onSubmit(values, { setStatus, setSubmitting }) {
+    setStatus();
+
+    console.log(values);
+
+    dispatch(ops.login(values));
+  }
+
   return (
-    <div className="signIn-page">
-      {'Hello my amazing project'}
-      {/* <div className="signUp-page__left-side">
-        <div className="logo-block">
-          <a href="/" className="logo-signin">
-            <ReactSVG src={"./logo-main.svg"} className="logo-signin-picture" />
-            <p className="logo-signin-text">Rylex</p>
-          </a>
-        </div>
+    <>
+      <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
+        <Box
+          sx={{
+            my: 8,
+            mx: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "280px",
+          }}
+        >
+          <Typography className={classes.title} component="h1" variant="h2">
+            Sign in to Rylex
+          </Typography>
 
-        <div className="signIn-page__helper">
-          <h2 className="signUp-page__article signUp-page__article--mgb">Sign in to Rylex</h2>
-
-          <div className="signIn-page__icons signIn-page__icons--mgb">
-            <a href="/" className="signUp-page__facebook-icon">
-              <ReactSVG
-                src="./images/facebook.svg"
-                alt="facebook"
-                className="facebook-icon"
-              />
-            </a>
-            <a href="/" className="mail-icon">
-              <ReactSVG
-                src="./images/googlePluse.svg"
-              />
-            </a>
+          <div className={classes.imgCont}>
+            <FacebookIcon className={classes.iconImg} />
+            <GoogleIcon className={classes.iconImg} />
           </div>
 
-          <p className="signIn-page__sugetion signIn-page__text--mgb">
+          <Typography className={classes.text} component="h2">
             or use your email account
-          </p>
-        </div>
+          </Typography>
 
-        <div className="group-items group-items--mgb">
-          <SignInInputs fields={twoField} />
-        </div>
-      </div>
-
-      <div className="signUp-page__signIn-link">
-        <div className="cube-signin"></div>
-        <div className="angle-signin"></div>
-        <div className="ellips-signin"></div>
-
-        <h1 className="signIn-page__title">Hello, Friend!</h1>
-
-        <p className="signIn-page__text">Enter your personal details
-          <br/>
-          and start journey with us
-        </p>
-
-        <Link to="/signUp" className="signUp-decoration">
-          <Button
-            className={"signUp-signin-page"}
-          >
-            Sign Up
-          </Button>
-        </Link>
-      </div> */}
-    </div>
+          <Box className={classes.form} sx={{ mt: 1 }}>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={signInSchema}
+              onSubmit={onSubmit}
+              enableReinitialize
+            >
+              {({
+                values,
+                setFieldValue,
+                handleChange,
+                handleSubmit,
+                errors,
+                touched,
+                enableReinitialize,
+              }) => (
+                <Form
+                  className={classes.formWpap}
+                  onSubmit={handleSubmit}
+                  enableReinitialize={enableReinitialize}
+                >
+                  <Field
+                    value={values.username}
+                    error={errors.username && touched.username}
+                    fullWidth
+                    onChange={handleChange}
+                    id="username"
+                    label="username"
+                    name="username"
+                    placeholder="username"
+                    type="text"
+                    autoComplete="username"
+                    autoFocus
+                    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+                    helperText={
+                      errors.username && touched.username
+                        ? errors.username
+                        : null
+                    }
+                    component={CustomField}
+                  />
+                  <Field
+                    value={values.password}
+                    error={errors.password && touched.password}
+                    fullWidth
+                    onChange={handleChange}
+                    name="password"
+                    label="Password"
+                    id="password"
+                    placeholder="password"
+                    autoComplete="current-password"
+                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    helperText={
+                      errors.password && touched.password
+                        ? errors.password
+                        : null
+                    }
+                    component={CustomPassword}
+                  />
+                  <div className={classes.containerCheck}>
+                    <a href="/" className={classes.linkBold}>
+                      Forgot your password?
+                    </a>
+                  </div>
+                  <Button
+                    className={classes.button}
+                    type="submit"
+                    fullWidth
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Sign In
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </Box>
+        </Box>
+      </Grid>
+    </>
   );
 };
-
-export default SignIn
+export default SignIn;
