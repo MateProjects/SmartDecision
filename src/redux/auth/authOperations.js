@@ -21,18 +21,16 @@ const register = (credentials, history) => (dispatch) => {
 
 const login = (credentials) => (dispatch) => {
   dispatch(authActions.loginRequest());
-// debugger
+  // debugger
   api
     .login(credentials)
     .then(({ data }) => {
-      console.log(data)
+      console.log(data);
       // api.setToken(data.accessToken);
       // debugger;
-      const {
-        accessToken,
-      } = data;
+      const { accessToken } = data;
       const userInfo = {
-        auth: { accessToken }
+        auth: { accessToken },
       };
       dispatch(authActions.loginSuccess(userInfo));
     })

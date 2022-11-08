@@ -9,8 +9,8 @@ import CustomField from "../input/InputField";
 import CustomPassword from "../inputPassword/inputPassword";
 import { ReactSVG } from "react-svg";
 // import style from './form-style'
-// import EmailOutlinedIcon from "@mui/material/EmailOutlinedIcon";
-// import LockOutlinedIcon from "@mui/material/LockOutlinedIcon";
+import EmailOutlinedIcon from "@mui/material/EmailOutlined";
+import LockOutlinedIcon from "@mui/material/LockOutlined";
 import FacebookIcon from "../../image/icons/FacebookIcon";
 import GoogleIcon from "../../image/icons/GoogleIcon";
 
@@ -113,7 +113,7 @@ const SignIn = () => {
                     type="text"
                     autoComplete="username"
                     autoFocus
-                    //    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+                    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.username && touched.username
                         ? errors.username
@@ -131,7 +131,7 @@ const SignIn = () => {
                     id="password"
                     placeholder="password"
                     autoComplete="current-password"
-                    //   inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.password && touched.password
                         ? errors.password
