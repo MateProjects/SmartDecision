@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.11.3",
     "@material-ui/utils": "^4.11.3",
     "@mui/material": "^5.10.8",
-    "@mui/styles": "^5.10.10",
+    "@mui/styles": "^5.10.14",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
