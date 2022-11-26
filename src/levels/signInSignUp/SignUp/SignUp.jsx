@@ -1,32 +1,30 @@
 import React, { useState } from "react";
-import Button from "@mui/material";
-import FormControlLabel from "@mui/material";
-import Checkbox from "@mui/material";
+import Button from "@mui/material/Button";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material";
-import Paper from "@mui/material";
-import Box from "@mui/material";
-import Grid from "@mui/material";
-import Typography from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import CustomField from "../input/InputField";
-import CustomPassword from "../inputPassword/inputPassword";
-
-// import style from './form-style'
-
-import FacebookIcon from "../../image/icons/FacebookIcon";
-import GoogleIcon from "../../image/icons/GoogleIcon";
-
-import PermIdentityIcon from "@mui/material";
-import EmailOutlinedIcon from "@mui/material";
-import LockOutlinedIcon from "@mui/material";
-
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { fontSize, fontWeight } from "@mui/system";
+// import { fontSize, fontWeight } from "@mui/system";
 import { useDispatch } from "react-redux";
-import useStyles from "./styles";
 
-import ops from "../../redux/auth/authOperations";
+import ops from '../../../redux/auth/authOperations'
+import CustomField from "../../../conmponents/input/InputField";
+import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
+
+import FacebookIcon from "../../../image/icons/FacebookIcon";
+import GoogleIcon from "../../../image/icons/GoogleIcon";
+import PermIdentityIcon from "../../../image/icons/PermIdentityIcon";
+import EmailOutlinedIcon from "../../../image/icons/EmailOutlinedIcon";
+import LockOutlinedIcon from "../../../image/icons/LockOutlinedIcon";
+
+
+import useStyles from ".";
+
 
 const signUpSchema = yup.object().shape({
   username: yup.string().required("This field is required."),

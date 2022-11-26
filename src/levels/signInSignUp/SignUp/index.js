@@ -1,4 +1,4 @@
-import { makeStyles } from  '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,9 +43,6 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "0",
     },
     "&:hover": {
-      // background: '#FFFFFF',
-      // backgroundColor: "FFFFFF",
-      // border:`1px solid ${theme.palette.secondary.main}`,
       color: theme.palette.secondary.main,
     },
   },

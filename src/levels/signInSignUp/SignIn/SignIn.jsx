@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
-import CustomField from "../../../conmponents/input/InputField";
+import CustomField from "../../../conmponents/input/InputField.jsx";
 import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
 import { ReactSVG } from "react-svg";
 // import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
