@@ -1,4 +1,4 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,38 +53,37 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.caption.fontSize,
     fontWeight: theme.typography.caption.fontWeight,
   },
-  formWpap: {
+  formWrap: {
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    alignItems: "center",
   },
-  form: {
-    "&&": {
-      width: "100%",
-      maxWidth: "380px",
-      // padding:0,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-
-      // padding: theme.spacing(2),
-      margin: {
-        // margin: theme.spacing(1)
-      },
-      "& .MuiTextField-root": {
-        margin: theme.spacing(1),
-      },
-      "& .MuiButtonBase-root": {},
+  formContainer: {
+    margin: 0,
+    // padding:0,
+    width: "100%",
+    maxWidth: "380px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
     },
   },
   button: {
-    "&&": {
-      height: "65px",
-    },
+    height: "65px",
+    width: 280,
+    color: theme.palette.primary.inverse,
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: 30,
   },
   containerCheck: {
     display: "flex",
     alignItems: "center",
+    alignSelf: "flex-start",
     maxWidth: "380px",
   },
   Check: {
@@ -95,6 +94,26 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: "#949494",
+  },
+  boxStyle: {
+    my: 8,
+    mx: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: "220px",
+  },
+  inputField: {
+    width: "100%",
+    backgroundColor: theme.palette.primary.inputBackground,
+    // caretColor: theme.palette.primary.main,
+
+    "& > div > fieldset:hover": {
+      borderColor: "blue",
+    },
+    // "& > div:hover": {
+    //   borderColor: "blue",
+    // },
   },
 }));
 

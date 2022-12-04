@@ -12,7 +12,7 @@ import * as yup from "yup";
 // import { fontSize, fontWeight } from "@mui/system";
 import { useDispatch } from "react-redux";
 
-import ops from '../../../redux/auth/authOperations'
+import ops from "../../../redux/auth/authOperations";
 import CustomField from "../../../conmponents/input/InputField";
 import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
 
@@ -22,9 +22,7 @@ import PermIdentityIcon from "../../../image/icons/PermIdentityIcon";
 import EmailOutlinedIcon from "../../../image/icons/EmailOutlinedIcon";
 import LockOutlinedIcon from "../../../image/icons/LockOutlinedIcon";
 
-
 import useStyles from ".";
-
 
 const signUpSchema = yup.object().shape({
   username: yup.string().required("This field is required."),
@@ -67,18 +65,21 @@ const SignUp = () => {
     dispatch(ops.register(values));
   }
 
+  console.log("classes.boxStyle", classes.boxStyle);
+
   return (
     <>
       <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
         <Box
-          sx={{
-            my: 8,
-            mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginTop: "220px",
-          }}
+          // sx={{
+          // my: 8,
+          // mx: 4,
+          // display: "flex",
+          // flexDirection: "column",
+          // alignItems: "center",
+          // marginTop: "220px",
+          // }}
+          className={classes.boxStyle}
         >
           <Typography className={classes.title} component="h1" variant="h2">
             Create Account
@@ -93,7 +94,7 @@ const SignUp = () => {
             or use your email for registration
           </Typography>
 
-          <Box className={classes.form} sx={{ mt: 1 }}>
+          <Box className={classes.formContainer} sx={{ mt: 1 }}>
             <Formik
               initialValues={initialValues}
               validationSchema={signUpSchema}
@@ -110,7 +111,7 @@ const SignUp = () => {
                 enableReinitialize,
               }) => (
                 <Form
-                  className={classes.formWpap}
+                  className={classes.formWrap}
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
@@ -122,7 +123,7 @@ const SignUp = () => {
                     placeholder="Name"
                     type="text"
                     id="username"
-                    label="First Name"
+                    // label="First Name"
                     autoComplete="name"
                     autoFocus
                     inputIcon={<PermIdentityIcon className={classes.icon} />}
@@ -132,6 +133,12 @@ const SignUp = () => {
                         : null
                     }
                     component={CustomField}
+                    className={classes.inputField}
+                    sx={{
+                      "& .MuiOutlinedInput-root:hover": {
+                        "& > fieldset": { borderColor: "orange" },
+                      },
+                    }}
                   />
                   <Field
                     value={values.email}
@@ -139,7 +146,7 @@ const SignUp = () => {
                     fullWidth
                     onChange={handleChange}
                     id="email"
-                    label="Email Address"
+                    // label="Email Address"
                     name="email"
                     placeholder="Email Address"
                     type="text"
@@ -150,6 +157,7 @@ const SignUp = () => {
                       errors.email && touched.email ? errors.email : null
                     }
                     component={CustomField}
+                    className={classes.inputField}
                   />
                   <Field
                     value={values.password}
@@ -157,7 +165,7 @@ const SignUp = () => {
                     fullWidth
                     onChange={handleChange}
                     name="password"
-                    label="Password"
+                    // label="Password"
                     id="password"
                     placeholder="password"
                     autoComplete="current-password"
@@ -168,6 +176,7 @@ const SignUp = () => {
                         : null
                     }
                     component={CustomPassword}
+                    className={classes.inputField}
                   />
                   <Field
                     value={values.repeatPassword}
@@ -175,7 +184,7 @@ const SignUp = () => {
                     fullWidth
                     onChange={handleChange}
                     name="repeatPassword"
-                    label="Password"
+                    // label="Password"
                     id="repeatPassword"
                     placeholder="repeatPassword"
                     autoComplete="current-password"
@@ -186,6 +195,7 @@ const SignUp = () => {
                         : null
                     }
                     component={CustomPassword}
+                    className={classes.inputField}
                   />
                   <div className={classes.containerCheck}>
                     <FormControlLabel
@@ -202,7 +212,6 @@ const SignUp = () => {
                     type="submit"
                     fullWidth
                     className={classes.button}
-                    // variant="contained"
                     sx={{ mt: 3, mb: 2 }}
                   >
                     Sign Up

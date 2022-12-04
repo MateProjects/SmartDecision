@@ -17,6 +17,7 @@ const CustomField = ({
   onChange,
   id,
   helperText,
+  ...props
 }) => {
   const classes = useStyles();
   const [isFocused, setIsFocused] = useState(true);
@@ -44,6 +45,7 @@ const CustomField = ({
             <InputAdornment position="start">{inputIcon}</InputAdornment>
           ) : null,
         }}
+        {...props}
       />
     </>
   );

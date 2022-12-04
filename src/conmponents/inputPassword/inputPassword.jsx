@@ -17,6 +17,7 @@ const CustomPassword = ({
   id,
   inputIcon,
   helperText,
+  ...props
 }) => {
   const classes = useStyles();
 
@@ -81,6 +82,7 @@ const CustomPassword = ({
             </>
           ),
         }}
+        {...props}
       />
     </>
   );
