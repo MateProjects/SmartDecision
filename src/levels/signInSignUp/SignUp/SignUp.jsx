@@ -23,6 +23,7 @@ import EmailOutlinedIcon from "../../../image/icons/EmailOutlinedIcon";
 import LockOutlinedIcon from "../../../image/icons/LockOutlinedIcon";
 
 import useStyles from ".";
+import { sxTheming } from ".";
 
 const signUpSchema = yup.object().shape({
   username: yup.string().required("This field is required."),
@@ -134,11 +135,7 @@ const SignUp = () => {
                     }
                     component={CustomField}
                     className={classes.inputField}
-                    sx={{
-                      "& .MuiOutlinedInput-root:hover": {
-                        "& > fieldset": { borderColor: "orange" },
-                      },
-                    }}
+                    sx={sxTheming}
                   />
                   <Field
                     value={values.email}
@@ -158,6 +155,7 @@ const SignUp = () => {
                     }
                     component={CustomField}
                     className={classes.inputField}
+                    sx={sxTheming}
                   />
                   <Field
                     value={values.password}
@@ -167,7 +165,7 @@ const SignUp = () => {
                     name="password"
                     // label="Password"
                     id="password"
-                    placeholder="password"
+                    placeholder="Password"
                     autoComplete="current-password"
                     inputIcon={<LockOutlinedIcon className={classes.icon} />}
                     helperText={
@@ -177,6 +175,7 @@ const SignUp = () => {
                     }
                     component={CustomPassword}
                     className={classes.inputField}
+                    sx={sxTheming}
                   />
                   <Field
                     value={values.repeatPassword}
@@ -186,7 +185,7 @@ const SignUp = () => {
                     name="repeatPassword"
                     // label="Password"
                     id="repeatPassword"
-                    placeholder="repeatPassword"
+                    placeholder="Repeat Password"
                     autoComplete="current-password"
                     inputIcon={<LockOutlinedIcon className={classes.icon} />}
                     helperText={
@@ -196,6 +195,7 @@ const SignUp = () => {
                     }
                     component={CustomPassword}
                     className={classes.inputField}
+                    sx={sxTheming}
                   />
                   <div className={classes.containerCheck}>
                     <FormControlLabel

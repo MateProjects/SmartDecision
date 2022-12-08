@@ -118,3 +118,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default useStyles;
+
+
+export const sxTheming = {
+  "& .MuiOutlinedInput-root:hover": {
+    "& > fieldset": { borderColor: "#1AAA8D" },
+  },
+}
