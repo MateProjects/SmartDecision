@@ -5,21 +5,20 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
-import CustomField from "../../../conmponents/input/InputField.jsx";
-import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
+import CustomField from "../input/InputField";
+import CustomPassword from "../inputPassword/inputPassword";
 import { ReactSVG } from "react-svg";
-// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlinedIcon';
-// import { EmailOutlinedIcon, LockOutlinedIcon } from "@mui/icons-material";
-import FacebookIcon from "../../../image/icons/FacebookIcon";
-import GoogleIcon from "../../../image/icons/GoogleIcon";
-// import useStyles from "./styles";
-import useStyles from "./index";
-import ops from "../../../redux/auth/authOperations";
+// import style from './form-style'
+import EmailOutlinedIcon from "@mui/material/EmailOutlined";
+import LockOutlinedIcon from "@mui/material/LockOutlined";
+import FacebookIcon from "../../image/icons/FacebookIcon";
+import GoogleIcon from "../../image/icons/GoogleIcon";
+
+import ops from "../../redux/auth/authOperations";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
+import useStyles from "./styles";
 
 const signInSchema = yup.object().shape({
   username: yup.string().required("This field is required."),
@@ -44,9 +43,12 @@ const SignIn = () => {
   };
 
   function onSubmit(values, { setStatus, setSubmitting }) {
+    // event.preventDefault();
     setStatus();
 
     console.log(values);
+    console.log("submit");
+    debugger;
 
     dispatch(ops.login(values));
   }
@@ -98,6 +100,7 @@ const SignIn = () => {
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
+                  {console.log(values)}
                   <Field
                     value={values.username}
                     error={errors.username && touched.username}
@@ -110,7 +113,7 @@ const SignIn = () => {
                     type="text"
                     autoComplete="username"
                     autoFocus
-                    // inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+                    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.username && touched.username
                         ? errors.username
@@ -128,7 +131,7 @@ const SignIn = () => {
                     id="password"
                     placeholder="password"
                     autoComplete="current-password"
-                    // inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.password && touched.password
                         ? errors.password
@@ -145,6 +148,7 @@ const SignIn = () => {
                     className={classes.button}
                     type="submit"
                     fullWidth
+                    // variant="contained"
                     sx={{ mt: 3, mb: 2 }}
                   >
                     Sign In

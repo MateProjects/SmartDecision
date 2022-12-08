@@ -1,0 +1,120 @@
+
+@mixin for-size($range) {
+  $mobile: 320px;
+  $tablet: 768px;
+  $desktop: 1280px;
+
+  @if $range == mobile-only {
+    @media (max-width: #{$mobile}) {
+      @content;
+    }
+  } @else if $range == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  } @else if $range == tablet-only {
+    @media (max-width: #{$tablet - 1}) {
+      @content;
+    }
+  } @else if $range == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $range == desktop-only {
+    @media (max-width: #{$desktop - 1}) {
+      @content;
+    }
+  } @else if $range == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin font(
+  $weight,
+  $size,
+  $line-height,
+  $font-family: $primary-font,
+  $letter-spacing: $primary-letter-spacing
+) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  font-family: $font-family;
+  letter-spacing: $letter-spacing;
+}
+
+.background {
+  position: absolute;
+  // position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  @include for-size(tablet) {
+    min-height: 100vh;
+    // background-image: url('../../assets/pictures/shapeGrayAuthTablet.svg');
+    background-position: bottom 0px right 0px;
+    background-repeat: no-repeat;
+    background-size: 70% auto;
+  }
+
+  @include for-size(desktop) {
+    min-height: 100vh;
+    // background-image: url('../../assets/pictures/shapeGrayAuth.svg');
+    background-position: bottom 0px right 0px;
+    background-repeat: no-repeat;
+    background-size: 62% auto;
+  }
+}
+
+.strowberry {
+  @include for-size(tablet) {
+    display: block;
+    position: absolute;
+    right: 0px;
+    bottom: -60px;
+    pointer-events: none;
+  }
+  @include for-size(desktop) {
+    right: -3px;
+    bottom: -6px;
+  }
+}
+
+.banana {
+  @include for-size(tablet) {
+    display: block;
+    position: absolute;
+    left: -15px;
+    bottom: 118px;
+    pointer-events: none;
+  }
+  @include for-size(desktop) {
+    right: -220px;
+    bottom: -50px;
+  }
+}
+
+.leaves {
+  @include for-size(tablet) {
+    display: block;
+    position: absolute;
+    right: 140px;
+    top: 250px;
+    pointer-events: none;
+  }
+  @include for-size(desktop) {
+   right: 86px;
+    top: 415px;
+  }
+}
