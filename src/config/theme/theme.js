@@ -10,6 +10,9 @@ let theme = createTheme({
     secondary: {
       main: "#30B78D",
     },
+    commonColors: {
+      grey: "#949494"
+    }
   },
   fontFamily: ["Mulish"].join(","),
   typography: {

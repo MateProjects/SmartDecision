@@ -1,10 +1,10 @@
-// import { makeStyles } from "@mui/styles";
-import theme from "../../../config/theme/theme";
+import { makeStyles } from "@mui/styles";
+// import theme from "../../../config/theme/theme";
 
-const useStyles = () => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   title: {
     "&&": {
@@ -18,7 +18,7 @@ const useStyles = () => ({
   text: {
     "&&": {
       flexGrow: 1,
-      color: "#949494",
+      color: theme.palette.commonColors.grey,
     },
   },
   paper: {
@@ -100,7 +100,21 @@ const useStyles = () => ({
     fontWeight: theme.typography.caption.fontWeight,
   },
   icon: {
-    color: "#949494",
+    color: theme.palette.commonColors.grey,
   },
-});
+  boxStyle: {
+    my: 8,
+    mx: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingTop: "220px",
+  }
+}));
 export default useStyles;
+
+export const sxTheming = {
+  "& .MuiOutlinedInput-root:hover": {
+    "& > fieldset": { borderColor: "#1AAA8D" },
+  },
+}

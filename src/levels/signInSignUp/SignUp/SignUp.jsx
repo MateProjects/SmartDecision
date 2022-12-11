@@ -66,8 +66,6 @@ const SignUp = () => {
     dispatch(ops.register(values));
   }
 
-  console.log("classes.boxStyle", classes.boxStyle);
-
   return (
     <>
       <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>

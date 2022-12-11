@@ -106,14 +106,10 @@ const useStyles = makeStyles((theme) => ({
   inputField: {
     width: "100%",
     backgroundColor: theme.palette.primary.inputBackground,
-    // caretColor: theme.palette.primary.main,
 
     "& > div > fieldset:hover": {
       borderColor: "blue",
-    },
-    // "& > div:hover": {
-    //   borderColor: "blue",
-    // },
+    }
   },
 }));
 
