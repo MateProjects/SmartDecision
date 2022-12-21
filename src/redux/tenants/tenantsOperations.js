@@ -16,7 +16,6 @@ const getTenants = options => (dispatch, getState) => {
     api
     .getTenants(options)
     .then(({ data }) => {
-        // debugger
       let payload = {};
       if (data.tenants) {
         const { tenants} = data;
@@ -24,7 +23,6 @@ const getTenants = options => (dispatch, getState) => {
       } else {
         payload = {
             tenants: { ...data },
-        //   eatenProducts: [],
         };
       }
       dispatch(tenantsActions.getTenantsSuccess(payload));

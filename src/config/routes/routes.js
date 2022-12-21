@@ -2,7 +2,11 @@ export const homePage = "/";
 
 export const privatePaths = {
   admin: {},
-  user: {},
+  user: {
+    tenants: "/tenants",
+    home: "/userHome",
+    search: "/search",
+  },
   group: {},
   tenant: {},
 };

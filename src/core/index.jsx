@@ -8,6 +8,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 
 const SignIn = lazy(() => import("../levels/signInSignUp/SignIn/SignIn"));
 const SignUp = lazy(() => import("../levels/signInSignUp/SignUp/SignUp"));
+const Tenants = lazy(() => import("../levels/user/Tenants/Tenants"));
 // const SubFranchiseesPage = lazy(() =>
 //   import('pages/Franchisee/SubFranshiseesPage')
 // )
@@ -66,10 +67,6 @@ const publicRoutes = [
 
 const privateRoutes = {
   tenant: [
-    // {
-    //   path: privatePaths.franchisee.sub_franshisees,
-    //   Component: <SubFranchiseesPage />
-    // },
     // {
     //   path: privatePaths.franchisee.subFranshisee,
     //   Component: <SubFranshiseeDetailsPage />
@@ -150,18 +147,30 @@ const privateRoutes = {
     //   Component: <FileFolderPage />
     // },
     {
+      path: `${privatePaths?.user?.tenants}/*`,
+      Component: <Tenants />,
+    },
+    {
+      path: `${privatePaths?.user?.search}/*`,
+      Component: <Tenants />,
+    },
+    {
       path: "*",
       // Component: <NotExistingPage />
     },
   ],
 };
 
+const see = privateRoutes?.["user"]?.map((route) => {
+  return route;
+});
+
 const App = () => {
   // const {
   //   user: { type },
   // } = authStore;
   const type = "user";
-  const role = type?.replace(/\s/g, "")?.toLowerCase() || "franchisee";
+  const role = type?.replace(/\s/g, "")?.toLowerCase() || "admin";
   return (
     <Suspense fallback={<LinearProgress />}>
       <Routes>

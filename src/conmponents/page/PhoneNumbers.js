@@ -47,7 +47,6 @@ debugger
       },
   ]
   let tenants = useSelector(selectors.getAllTenantsSelector);
-  console.log(tenants)
 
 //     let arr = [{"start": 12683281,"end": 12683281,"range": 1,"tableData": {"id": 6,"checked": true}},{
 //   "start": 12683281,

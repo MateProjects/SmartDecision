@@ -1,15 +1,22 @@
 import Button from "@mui/material/Button";
 
-import { simpleButtonStyles } from "./simpleButtonStyles";
+import { simpleButtonStyles } from "./style";
 
 const SimpleButton = ({
   name = "",
   type = "button",
   disabled = false,
+  className,
   ...props
 }) => {
+  const classes = simpleButtonStyles();
   return (
-    <Button type={type} disabled {...props}>
+    <Button
+      type={type}
+      disabled={disabled}
+      className={!className ? classes.buttonStyles : className}
+      {...props}
+    >
       {name}
     </Button>
   );

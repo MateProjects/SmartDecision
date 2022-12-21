@@ -47,8 +47,6 @@ const SignIn = () => {
   function onSubmit(values, { setStatus, setSubmitting }) {
     setStatus();
 
-    console.log(values);
-
     dispatch(ops.login(values));
   }
 
