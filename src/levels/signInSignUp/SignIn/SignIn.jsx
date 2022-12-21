@@ -21,30 +21,30 @@ import useStyles from "./index";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 
-const signInSchema = yup.object().shape({
-  username: yup.string().required("This field is required."),
-  password: yup
-    .string()
-    .min(6, "Password is too short.")
-    .max(20, "Password is too long.")
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-    )
-    .required("This field is required."),
-});
+// const signInSchema = yup.object().shape({
+//   username: yup.string().required("This field is required."),
+//   password: yup
+//     .string()
+//     .min(6, "Password is too short.")
+//     .max(20, "Password is too long.")
+//     .matches(
+//       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+//       "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+//     )
+//     .required("This field is required."),
+// });
 
-const SignIn = () => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
+// const SignIn = () => {
+//   const dispatch = useDispatch();
+//   const classes = useStyles();
 
-  const initialValues = {
-    username: "",
-    password: "",
-  };
+//   const initialValues = {
+//     username: "",
+//     password: "",
+//   };
 
-  function onSubmit(values, { setStatus, setSubmitting }) {
-    setStatus();
+//   function onSubmit(values, { setStatus, setSubmitting }) {
+//     setStatus();
 
     dispatch(ops.login(values));
   }
@@ -156,4 +156,5 @@ const SignIn = () => {
     </>
   );
 };
+
 export default SignIn;
