@@ -4,7 +4,6 @@ export const privatePaths = {
   admin: {},
   user: {
     tenants: "/tenants",
-    home: "/userHome",
     search: "/search",
   },
   group: {},

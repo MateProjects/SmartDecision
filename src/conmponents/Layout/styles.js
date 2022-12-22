@@ -58,6 +58,18 @@ export const layoutStyles = makeStyles(() => ({
     marginLeft: 5,
     color: theme.palette.commonColors.grey,
   },
+  logoContainer: {
+    padding: "40px 37px 90px 40px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    fontSize: 24,
+    fontFamily: "Mulish",
+    color: theme.palette.primary.inverse,
+  },
+  logoText: {
+    marginLeft: 15,
+  },
 }));
 
 export const menuItemStyles = makeStyles(() => {
