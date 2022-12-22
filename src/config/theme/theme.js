@@ -1,5 +1,12 @@
 import { createTheme } from "@mui/material/styles";
 
+// export default {
+//   gradient: 'linear-gradient(to right, #FF4B2B, #FF416C)',
+//   color: {
+//     brand: '#FF4B2B'
+//   }
+// }
+
 let theme = createTheme({
   palette: {
     primary: {
