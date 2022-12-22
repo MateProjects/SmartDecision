@@ -21,30 +21,30 @@ import useStyles from "./index";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 
-// const signInSchema = yup.object().shape({
-//   username: yup.string().required("This field is required."),
-//   password: yup
-//     .string()
-//     .min(6, "Password is too short.")
-//     .max(20, "Password is too long.")
-//     .matches(
-//       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-//       "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-//     )
-//     .required("This field is required."),
-// });
+const signInSchema = yup.object().shape({
+  username: yup.string().required("This field is required."),
+  password: yup
+    .string()
+    .min(6, "Password is too short.")
+    .max(20, "Password is too long.")
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    )
+    .required("This field is required."),
+});
 
-// const SignIn = () => {
-//   const dispatch = useDispatch();
-//   const classes = useStyles();
+const SignIn = () => {
+  const dispatch = useDispatch();
+  const classes = useStyles();
 
-//   const initialValues = {
-//     username: "",
-//     password: "",
-//   };
+  const initialValues = {
+    username: "",
+    password: "",
+  };
 
-//   function onSubmit(values, { setStatus, setSubmitting }) {
-//     setStatus();
+  function onSubmit(values, { setStatus, setSubmitting }) {
+    setStatus();
 
     dispatch(ops.login(values));
   }
@@ -156,5 +156,33 @@ import * as yup from "yup";
     </>
   );
 };
-
 export default SignIn;
+// import React from "react";
+
+// import FormLogin from "../../../conmponents/toggleForm/FormLogin";
+// import FormSignup from "../../../conmponents/toggleForm/FormSignup";
+// import Overlay from "../../../conmponents/toggleForm/Overlay";
+
+// import Container from "../../../conmponents/toggleForm/Container";
+
+// import useToggle, {
+//   STATE_LOG_IN,
+// } from "../../../conmponents/toggleForm/useToggle";
+
+// const SignIn = ({ initialState = STATE_LOG_IN }) => {
+//   const [mode, toggleMode] = useToggle(initialState);
+
+//   return (
+//     <Container pose={mode === STATE_LOG_IN ? "signup" : "login"}>
+//       <div className="container__form container__form--one">
+//         <FormLogin mode={mode} />
+//       </div>
+//       <div className="container__form container__form--two">
+//         <FormSignup mode={mode} />
+//       </div>
+//       <Overlay toggleMode={toggleMode} mode={mode} />
+//     </Container>
+//   );
+// };
+
+// export default SignIn;
