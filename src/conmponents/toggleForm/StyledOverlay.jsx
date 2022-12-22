@@ -43,7 +43,7 @@ export default styled(
   })
 )`
   z-index: 1;
-  background: ${({ theme }) => theme.gradient};
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
   align-self: stretch;
   color: white;
   display: grid;

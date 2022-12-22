@@ -21,30 +21,30 @@ import useStyles from "./index";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 
-const signInSchema = yup.object().shape({
-  username: yup.string().required("This field is required."),
-  password: yup
-    .string()
-    .min(6, "Password is too short.")
-    .max(20, "Password is too long.")
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-    )
-    .required("This field is required."),
-});
+// const signInSchema = yup.object().shape({
+//   username: yup.string().required("This field is required."),
+//   password: yup
+//     .string()
+//     .min(6, "Password is too short.")
+//     .max(20, "Password is too long.")
+//     .matches(
+//       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+//       "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+//     )
+//     .required("This field is required."),
+// });
 
-const SignIn = () => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
+// const SignIn = () => {
+//   const dispatch = useDispatch();
+//   const classes = useStyles();
 
-  const initialValues = {
-    username: "",
-    password: "",
-  };
+//   const initialValues = {
+//     username: "",
+//     password: "",
+//   };
 
-  function onSubmit(values, { setStatus, setSubmitting }) {
-    setStatus();
+//   function onSubmit(values, { setStatus, setSubmitting }) {
+//     setStatus();
 
     dispatch(ops.login(values));
   }
@@ -173,16 +173,139 @@ export default SignIn;
 //   const [mode, toggleMode] = useToggle(initialState);
 
 //   return (
-//     <Container pose={mode === STATE_LOG_IN ? "signup" : "login"}>
-//       <div className="container__form container__form--one">
-//         <FormLogin mode={mode} />
-//       </div>
-//       <div className="container__form container__form--two">
-//         <FormSignup mode={mode} />
-//       </div>
-//       <Overlay toggleMode={toggleMode} mode={mode} />
-//     </Container>
+//     <>
+//       <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
+//         <Box
+//           sx={{
+//             my: 8,
+//             mx: 4,
+//             display: "flex",
+//             flexDirection: "column",
+//             alignItems: "center",
+//             marginTop: "280px",
+//           }}
+//         >
+//           <Typography className={classes.title} component="h1" variant="h2">
+//             Sign in to Rylex
+//           </Typography>
+
+//           <div className={classes.imgCont}>
+//             <FacebookIcon className={classes.iconImg} />
+//             <GoogleIcon className={classes.iconImg} />
+//           </div>
+
+//           <Typography className={classes.text} component="h2">
+//             or use your email account
+//           </Typography>
+
+//           <Box className={classes.form} sx={{ mt: 1 }}>
+//             <Formik
+//               initialValues={initialValues}
+//               validationSchema={signInSchema}
+//               onSubmit={onSubmit}
+//               enableReinitialize
+//             >
+//               {({
+//                 values,
+//                 setFieldValue,
+//                 handleChange,
+//                 handleSubmit,
+//                 errors,
+//                 touched,
+//                 enableReinitialize,
+//               }) => (
+//                 <Form
+//                   className={classes.formWpap}
+//                   onSubmit={handleSubmit}
+//                   enableReinitialize={enableReinitialize}
+//                 >
+//                   <Field
+//                     value={values.username}
+//                     error={errors.username && touched.username}
+//                     fullWidth
+//                     onChange={handleChange}
+//                     id="username"
+//                     label="username"
+//                     name="username"
+//                     placeholder="username"
+//                     type="text"
+//                     autoComplete="username"
+//                     autoFocus
+//                     // inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+//                     helperText={
+//                       errors.username && touched.username
+//                         ? errors.username
+//                         : null
+//                     }
+//                     component={CustomField}
+//                   />
+//                   <Field
+//                     value={values.password}
+//                     error={errors.password && touched.password}
+//                     fullWidth
+//                     onChange={handleChange}
+//                     name="password"
+//                     label="Password"
+//                     id="password"
+//                     placeholder="password"
+//                     autoComplete="current-password"
+//                     // inputIcon={<LockOutlinedIcon className={classes.icon} />}
+//                     helperText={
+//                       errors.password && touched.password
+//                         ? errors.password
+//                         : null
+//                     }
+//                     component={CustomPassword}
+//                   />
+//                   <div className={classes.containerCheck}>
+//                     <a href="/" className={classes.linkBold}>
+//                       Forgot your password?
+//                     </a>
+//                   </div>
+//                   <Button
+//                     className={classes.button}
+//                     type="submit"
+//                     fullWidth
+//                     sx={{ mt: 3, mb: 2 }}
+//                   >
+//                     Sign In
+//                   </Button>
+//                 </Form>
+//               )}
+//             </Formik>
+//           </Box>
+//         </Box>
+//       </Grid>
+//     </>
 //   );
 // };
-
 // export default SignIn;
+import React from "react";
+
+import FormLogin from "../../../conmponents/toggleForm/FormLogin";
+import FormSignup from "../../../conmponents/toggleForm/FormSignup";
+import Overlay from "../../../conmponents/toggleForm/Overlay";
+
+import Container from "../../../conmponents/toggleForm/Container";
+
+import useToggle, {
+  STATE_LOG_IN,
+} from "../../../conmponents/toggleForm/useToggle";
+
+const SignIn = ({ initialState = STATE_LOG_IN }) => {
+  const [mode, toggleMode] = useToggle(initialState);
+
+  return (
+    <Container pose={mode === STATE_LOG_IN ? "signup" : "login"}>
+      <div className="container__form container__form--one">
+        <FormLogin mode={mode} />
+      </div>
+      <div className="container__form container__form--two">
+        <FormSignup mode={mode} />
+      </div>
+      <Overlay toggleMode={toggleMode} mode={mode} />
+    </Container>
+  );
+};
+
+export default SignIn;
