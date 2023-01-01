@@ -7,13 +7,15 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoutes";
 import PublicRoute from "./PublicRoutes/PublicRoutes";
 import LinearProgress from "@mui/material/LinearProgress";
 
-const SignIn = lazy(() => import("../levels/signInSignUp/SignIn/SignIn"));
+const RegisterForm = lazy(() =>
+  import("../levels/signInSignUp/Form/RegisterForm")
+);
 const SignUp = lazy(() => import("../levels/signInSignUp/SignUp/SignUp"));
 const Tenants = lazy(() => import("../levels/user/Tenants/Tenants"));
 const SearchTenants = lazy(() => import("../levels/user/Search/index"))
 
 const publicRoutes = [
-  { path: publicPaths.login, Component: <SignIn /> },
+  { path: publicPaths.login, Component: <RegisterForm /> },
   { path: publicPaths.signUp, Component: <SignUp /> },
 ];
 
