@@ -87,6 +87,7 @@ export const Button = styled.button`
 export const GhostButton = styled(Button)`
   background-color: transparent;
   border-color: #ffffff;
+  z-index: 2;
 `;
 
 export const Anchor = styled.a`
@@ -142,12 +143,14 @@ export const OverlayPanel = styled.div`
 
 export const LeftOverlayPanel = styled(OverlayPanel)`
   transform: translateX(-20%);
+  z-index: 1;
   ${(props) => (props.signinIn !== true ? `transform: translateX(0);` : null)}
 `;
 
 export const RightOverlayPanel = styled(OverlayPanel)`
   right: 0;
   transform: translateX(0);
+  z-index: 1;
   ${(props) => (props.signinIn !== true ? `transform: translateX(20%);` : null)}
 `;
 

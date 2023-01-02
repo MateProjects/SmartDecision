@@ -2,6 +2,8 @@ import React from "react";
 import * as Components from "../Components";
 import SignIn from "../../../levels/signInSignUp/SignIn/SignIn";
 import SignUp from "../../../levels/signInSignUp/SignUp/SignUp";
+import Decorator from "../../../conmponents/decorator/decorator";
+
 // import FormLogin from "../../../conmponents/toggleForm/FormLogin";
 // import FormSignup from "../../../conmponents/toggleForm/FormSignup";
 // import Overlay from "../../../conmponents/toggleForm/Overlay";
@@ -53,6 +55,7 @@ const RegisterForm = () => {
 
       <Components.OverlayContainer signinIn={signIn}>
         <Components.Overlay signinIn={signIn}>
+          <Decorator />
           <Components.LeftOverlayPanel signinIn={signIn}>
             <Components.Title>Welcome Back!</Components.Title>
             <Components.Paragraph>
