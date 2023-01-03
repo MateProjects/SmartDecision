@@ -55,8 +55,8 @@ const RegisterForm = () => {
 
       <Components.OverlayContainer signinIn={signIn}>
         <Components.Overlay signinIn={signIn}>
-          <Decorator />
           <Components.LeftOverlayPanel signinIn={signIn}>
+            <Decorator />
             <Components.Title>Welcome Back!</Components.Title>
             <Components.Paragraph>
               To keep connected with us please login with your personal info
@@ -67,6 +67,7 @@ const RegisterForm = () => {
           </Components.LeftOverlayPanel>
 
           <Components.RightOverlayPanel signinIn={signIn}>
+            <Decorator />
             <Components.Title>Hello, Friend!</Components.Title>
             <Components.Paragraph>
               Enter Your personal details and start journey with us
@@ -75,6 +76,7 @@ const RegisterForm = () => {
               Sigin Up
             </Components.GhostButton>
           </Components.RightOverlayPanel>
+          {/* </Decorator> */}
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>
