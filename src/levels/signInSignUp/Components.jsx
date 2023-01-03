@@ -111,8 +111,9 @@ export const OverlayContainer = styled.div`
 
 export const Overlay = styled.div`
   background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  // background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+  // background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background:linear-gradient(to right, #1CA694 0%, 37.443944811820984%, #15AC88 74.88788962364197%, 87.44394481182098%, #30B78D 100%);  /* Gradient in RGBA */ linear-gradient(to right, rgba(28, 166, 148, 1) 0%, 37.443944811820984%, rgba(21, 172, 136, 1) 74.88788962364197%, 87.44394481182098%, rgba(48, 183, 141, 1) 100%);,
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
