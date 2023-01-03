@@ -23,8 +23,6 @@ export const SearchInput = (props) => {
 
   dispatch(searchTenants(requestInput));
 
-  // console.log(requestInput);
-
   return (
     <Input
       onChange={setRequest}

@@ -59,6 +59,15 @@ let theme = createTheme({
     fontWeight: 400,
   },
   spacing: 8,
+  breakpoints: {
+    values: {
+      xs: 480,
+      sm: 768,
+      md: 920,
+      lg: 1200,
+      xl: 1800
+    }
+  },
 });
 
 theme = createTheme(theme, {

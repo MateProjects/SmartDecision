@@ -11,14 +11,15 @@ const Tenants = ({}) => {
   return (
     <div className={classes.container}>
       <div className={classes.actionBar}>
+        <div className={classes.inputField}>
         <CustomField
           inputIcon={<SearchIcon />}
           placeholder={"Search"}
           type={"text"}
-          className={classes.inputField}
           sx={sxTheming}
         />
-        <AddButton disabled={false} />
+        </div>
+        <AddButton disabled={false} className={classes.buttonStyles}/>
       </div>
       <div className={classes.tableWrapper}>{<Table />}</div>
     </div>

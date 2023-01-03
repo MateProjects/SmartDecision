@@ -1,13 +1,18 @@
 import { Box, Typography } from "@material-ui/core";
+import clsx from "clsx";
 
 import { menuItemStyles } from "./styles";
 
-const MenuItem = ({ title, icon, ...props }) => {
+const MenuItem = ({ title, icon, hideDescription, ...props }) => {
   const classes = menuItemStyles();
+
+  const cnWrapper = clsx(classes.wrapper, {
+    [classes.wrapperLight]: !hideDescription,
+  });
   return (
-    <Box className={classes.wrapper} {...props}>
+    <Box className={cnWrapper} {...props}>
       {icon}
-      <Typography variant="h6">{title}</Typography>
+      {hideDescription && <Typography variant="h6">{title}</Typography>}
     </Box>
   );
 };

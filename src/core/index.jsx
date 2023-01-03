@@ -56,7 +56,6 @@ const App = () => {
   // } = authStore;
   const type = "user";
   const role = type?.replace(/\s/g, "")?.toLowerCase() || "admin";
-  console.log('type', type)
   return (
     <Suspense fallback={<LinearProgress />}>
       <Routes>
