@@ -8,7 +8,6 @@ export const tenantsStyle = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-
     [theme.breakpoints.down(768)]: {
       flexDirection: "column",
     },
