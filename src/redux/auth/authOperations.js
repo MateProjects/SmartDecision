@@ -25,7 +25,6 @@ const login = (credentials) => (dispatch) => {
   api
     .login(credentials)
     .then(({ data }) => {
-      console.log(data);
       // api.setToken(data.accessToken);
       // debugger;
       const { accessToken } = data;

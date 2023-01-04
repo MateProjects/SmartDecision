@@ -6,9 +6,14 @@ let theme = createTheme({
       main: "#1AAA8D",
       inverse: "#FFFFFF",
       inputBackground: "#F1FAF7",
+      border: "#C0CECA",
+      backgroundLightGreen: "#F1FAF7"
     },
     secondary: {
       main: "#30B78D",
+    },
+    commonColors: {
+      grey: "#949494",
     },
   },
   fontFamily: ["Mulish"].join(","),
@@ -39,13 +44,30 @@ let theme = createTheme({
       fontSize: "24px",
       fontWeight: 700,
     },
+    h6: {
+      fontFamily: "Mulish",
+    },
     caption: {
       fontFamily: "Mulish",
       fontSize: "14px",
       fontWeight: 700,
     },
   },
+  button: {
+    fontFamily: "Mulish",
+    fontSize: "16px",
+    fontWeight: 400,
+  },
   spacing: 8,
+  breakpoints: {
+    values: {
+      xs: 480,
+      sm: 768,
+      md: 920,
+      lg: 1200,
+      xl: 1800
+    }
+  },
 });
 
 theme = createTheme(theme, {
@@ -64,14 +86,16 @@ theme = createTheme(theme, {
           border: 0,
           color: "white",
           padding: "0 30px",
-          marginTop: "40px",
+          // marginTop: "40px",
           textTransform: "inherit",
-          fontSize: theme.typography.subtitle1.fontSize,
+          fontSize: theme.typography.button.fontSize,
           maxWidth: "280px",
           display: "flex",
           justifyContent: "center",
-          margin: "0 auto",
+          // margin: "0 auto",
           borderRadius: "30px",
+          fontWeight: theme.typography.button.fontWeight,
+          fontFamily: theme.typography.button.fontFamily,
           "&:hover": {
             background: "#FFFFFF",
             backgroundColor: "FFFFFF",
@@ -99,9 +123,10 @@ theme = createTheme(theme, {
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          backgroundColor: "#F1FAF7",
+          backgroundColor: theme.palette.primary.backgroundLightGreen,
           fontFamily: "Mulish",
           caretColor: theme.palette.primary.main,
+          maxHeight: 52,
 
           "& $notchedOutline": {
             borderColor: "transparent",
@@ -165,6 +190,20 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontFamily: "Mulish",
+        },
+      },
+    },
+    // MuiCssBaseline: {
+    //   styleOverrides: {
+    //     html: {
+    //       fontSize: 10
+    //     }
+    //   }
+    // },
   },
 });
 

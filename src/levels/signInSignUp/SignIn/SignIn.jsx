@@ -14,9 +14,10 @@ import { ReactSVG } from "react-svg";
 // import { EmailOutlinedIcon, LockOutlinedIcon } from "@mui/icons-material";
 import FacebookIcon from "../../../image/icons/FacebookIcon";
 import GoogleIcon from "../../../image/icons/GoogleIcon";
-// import useStyles from "./styles";
-import useStyles from "./index";
 import ops from "../../../redux/auth/authOperations";
+
+import { sxTheming } from "./index";
+import useStyles from "./index";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
@@ -46,23 +47,22 @@ const SignIn = () => {
   function onSubmit(values, { setStatus, setSubmitting }) {
     setStatus();
 
-    console.log(values);
-
     dispatch(ops.login(values));
   }
 
   return (
     <>
-      <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={8} md={7} component={Paper} elevation={0} square>
         <Box
-          sx={{
-            my: 8,
-            mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginTop: "280px",
-          }}
+          // sx={{
+          //   my: 8,
+          //   mx: 4,
+          //   display: "flex",
+          //   flexDirection: "column",
+          //   alignItems: "center",
+          //   marginTop: "280px",
+          // }}
+          className={classes.boxStyle}
         >
           <Typography className={classes.title} component="h1" variant="h2">
             Sign in to Rylex
@@ -117,6 +117,7 @@ const SignIn = () => {
                         : null
                     }
                     component={CustomField}
+                    sx={sxTheming}
                   />
                   <Field
                     value={values.password}
@@ -135,6 +136,7 @@ const SignIn = () => {
                         : null
                     }
                     component={CustomPassword}
+                    sx={sxTheming}
                   />
                   <div className={classes.containerCheck}>
                     <a href="/" className={classes.linkBold}>

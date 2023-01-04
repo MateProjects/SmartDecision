@@ -22,8 +22,6 @@ const Sidebar = ({ flag, setinitForm }) => {
   const handleChange = (event) => {
     setForm(!form);
     setinitForm(form, "hello!");
-
-    console.log(form);
   };
 
   const classes = useStyles();
