@@ -10,8 +10,6 @@ import Sidebar from "../sidebar/sidebar"
 
 const Form = () => {
     const [initForm, setinitForm] = useState('');
-//   const [mode, toggleMode] = useToggle(initialState);
-console.log(`${initForm} 'init'`) 
   return (
     <Grid container component="main" sx={{ height:'100vh'}}>
         {/* <CssBaseline /> */}

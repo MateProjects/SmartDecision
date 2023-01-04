@@ -83,8 +83,6 @@ export default App;
 
 //   }, []);
 
-// console.log(routes)
-
 //   return (
 //     <>
 //     <ThemeProvider theme={theme}>

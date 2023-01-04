@@ -8,11 +8,25 @@ export const tenantsStyle = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+
+    [theme.breakpoints.down(768)]: {
+      flexDirection: "column",
+    },
   },
   inputField: {
     height: 52,
     maxWidth: 340,
-    backgroundColor: "#ffffff",
+
+    [theme.breakpoints.down(768)]: {
+      marginBottom: 10,
+    },
+  },
+  buttonStyles: {
+    height: 52,
+
+    [theme.breakpoints.down(768)]: {
+      alignSelf: "flex-end",
+    },
   },
 }));
 

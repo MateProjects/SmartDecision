@@ -36,9 +36,6 @@ const CustomField = ({
       error={error}
       fullWidth
       InputProps={{
-        // startAdornment: isFocused ? (
-        //   <InputAdornment position="start">{inputIcon}</InputAdornment>
-        // ) : null,
         startAdornment: (
           <InputAdornment position="start">{inputIcon}</InputAdornment>
         ),

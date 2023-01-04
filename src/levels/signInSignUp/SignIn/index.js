@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   title: {
     "&&": {
@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
   formWpap: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
   },
   form: {
@@ -109,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     paddingTop: "220px",
-  }
+  },
 }));
 export default useStyles;
 
@@ -117,4 +118,4 @@ export const sxTheming = {
   "& .MuiOutlinedInput-root:hover": {
     "& > fieldset": { borderColor: "#1AAA8D" },
   },
-}
+};

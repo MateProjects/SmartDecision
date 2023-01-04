@@ -43,11 +43,8 @@ const SignIn = () => {
   };
 
   function onSubmit(values, { setStatus, setSubmitting }) {
-    // event.preventDefault();
     setStatus();
 
-    console.log(values);
-    console.log("submit");
     debugger;
 
     dispatch(ops.login(values));
@@ -100,7 +97,6 @@ const SignIn = () => {
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
-                  {console.log(values)}
                   <Field
                     value={values.username}
                     error={errors.username && touched.username}
