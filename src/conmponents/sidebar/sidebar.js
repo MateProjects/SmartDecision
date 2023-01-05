@@ -1,6 +1,5 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import Grid from "@mui/material";
-import { makeStyles } from  '@mui/styles';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material";
 import Button from "@mui/material";
@@ -28,18 +27,17 @@ const Sidebar = ({ flag, setinitForm }) => {
 
   return (
     <>
-      <Grid item className={classes.root} xs={false} sm={4} md={5}>
-        <div className={classes.bar}>
-          <ReactSVG className={classes.imageIcon} src={logo} />
-          <h3 className={classes.logoText} component="h2" variant="body3">
+      <Grid item sx={classes.root} xs={false} sm={4} md={5}>
+        <div style={classes.bar}>
+          <ReactSVG sx={classes.imageIcon} src={logo} />
+          <h3 style={classes.logoText} component="h2" variant="body3">
             Rylex
           </h3>
-          {/* <img className={classes.imageIcon} alt="logo" src={logo}/> */}
         </div>
         <Decorator />
         <Box
-          className={classes.box}
           sx={{
+            ...classes.box,
             my: 8,
             mx: 4,
             display: "flex",
@@ -49,12 +47,12 @@ const Sidebar = ({ flag, setinitForm }) => {
             transform: "translate(0, 100%)",
           }}
         >
-          <h2 className={classes.title} component="h2" variant="h2">
+          <h2 style={classes.title} component="h2" variant="h2">
             {form === true ? "Hello, Friend!" : "Welcome Back!"}
           </h2>
 
           <Typography
-            className={classes.text}
+            sx={classes.text}
             component="h2"
             variant="subtitle1"
           >
@@ -64,7 +62,7 @@ const Sidebar = ({ flag, setinitForm }) => {
           </Typography>
 
           <Button
-            className={classes.button}
+            sx={classes.button}
             type="submit"
             fullWidth
             // variant="contained"

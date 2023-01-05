@@ -1,9 +1,9 @@
 
 const StartPage = ({classes}) => {
   return (
-    <div className={classes.sideContainer}>
-      <div className={classes.dynamicSide}></div>
-      <div className={classes.formSide}></div>
+    <div style={classes.sideContainer}>
+      <div style={classes.dynamicSide}></div>
+      <div style={classes.formSide}></div>
     </div>
   )
 }

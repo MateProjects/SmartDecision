@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import Button from "@mui/material";
 import FormControlLabel from "@mui/material";
 import Checkbox from "@mui/material";
-import Link from "@mui/material";
 import Paper from "@mui/material";
 import Box from "@mui/material";
 import Grid from "@mui/material";
 import Typography from "@mui/material";
-import { makeStyles } from  '@mui/styles';
 import CustomField from "../input/InputField";
 import CustomPassword from "../inputPassword/inputPassword";
 
@@ -82,20 +80,20 @@ const SignUp = () => {
             marginTop: "220px",
           }}
         >
-          <Typography className={classes.title} component="h1" variant="h2">
+          <Typography sx={classes.title} component="h1" variant="h2">
             Create Account
           </Typography>
 
-          <div className={classes.imgCont}>
-            <FacebookIcon className={classes.iconImg} />
-            <GoogleIcon className={classes.iconImg} />
+          <div style={classes.imgCont}>
+            <FacebookIcon sx={classes.iconImg} />
+            <GoogleIcon sx={classes.iconImg} />
           </div>
 
-          <Typography className={classes.text} component="h2">
+          <Typography sx={classes.text} component="h2">
             or use your email for registration
           </Typography>
 
-          <Box className={classes.form} sx={{ mt: 1 }}>
+          <Box sx={{ ...classes.form, mt: 1 }}>
             <Formik
               initialValues={initialValues}
               validationSchema={signUpSchema}
@@ -112,7 +110,7 @@ const SignUp = () => {
                 enableReinitialize,
               }) => (
                 <Form
-                  className={classes.formWpap}
+                  sx={classes.formWpap}
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
@@ -127,7 +125,7 @@ const SignUp = () => {
                     label="First Name"
                     autoComplete="name"
                     autoFocus
-                    inputIcon={<PermIdentityIcon className={classes.icon} />}
+                    inputIcon={<PermIdentityIcon sx={classes.icon} />}
                     helperText={
                       errors.username && touched.username
                         ? errors.username
@@ -147,7 +145,7 @@ const SignUp = () => {
                     type="text"
                     autoComplete="email"
                     autoFocus
-                    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+                    inputIcon={<EmailOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.email && touched.email ? errors.email : null
                     }
@@ -163,7 +161,7 @@ const SignUp = () => {
                     id="password"
                     placeholder="password"
                     autoComplete="current-password"
-                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.password && touched.password
                         ? errors.password
@@ -181,7 +179,7 @@ const SignUp = () => {
                     id="repeatPassword"
                     placeholder="repeatPassword"
                     autoComplete="current-password"
-                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.repeatPassword && touched.repeatPassword
                         ? errors.repeatPassword
@@ -189,13 +187,13 @@ const SignUp = () => {
                     }
                     component={CustomPassword}
                   />
-                  <div className={classes.containerCheck}>
+                  <div style={classes.containerCheck}>
                     <FormControlLabel
-                      className={classes.Check}
+                      sx={classes.Check}
                       control={<Checkbox color="primary" value="remember" />}
                       label="I agree to the"
                     />
-                    <a href="/" className={classes.linkBold}>
+                    <a href="/" style={classes.linkBold}>
                       Terms of User
                     </a>
                   </div>
@@ -203,9 +201,8 @@ const SignUp = () => {
                   <Button
                     type="submit"
                     fullWidth
-                    className={classes.button}
                     // variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ ...classes.button, mt: 3, mb: 2 }}
                   >
                     Sign Up
                   </Button>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
@@ -46,7 +45,7 @@ const CustomPassword = ({
   return (
     <>
       <TextField
-        className={classes.root}
+        sx={classes.root}
         variant="outlined"
         placeholder={placeholder}
         id={id}

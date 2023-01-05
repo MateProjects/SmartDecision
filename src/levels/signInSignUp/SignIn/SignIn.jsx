@@ -5,7 +5,6 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
 import CustomField from "../../../conmponents/input/InputField.jsx";
 import CustomPassword from "../../../conmponents/inputPassword/inputPassword";
 import { ReactSVG } from "react-svg";
@@ -62,22 +61,22 @@ const SignIn = () => {
           //   alignItems: "center",
           //   marginTop: "280px",
           // }}
-          className={classes.boxStyle}
+          sx={classes.boxStyle}
         >
-          <Typography className={classes.title} component="h1" variant="h2">
+          <Typography sx={classes.title} component="h1" variant="h2">
             Sign in to Rylex
           </Typography>
 
-          <div className={classes.imgCont}>
-            <FacebookIcon className={classes.iconImg} />
-            <GoogleIcon className={classes.iconImg} />
+          <div style={classes.imgCont}>
+            <FacebookIcon sx={classes.iconImg} />
+            <GoogleIcon sx={classes.iconImg} />
           </div>
 
-          <Typography className={classes.text} component="h2">
+          <Typography sx={classes.text} component="h2">
             or use your email account
           </Typography>
 
-          <Box className={classes.form} sx={{ mt: 1 }}>
+          <Box sx={{ ...classes.form, mt: 1 }}>
             <Formik
               initialValues={initialValues}
               validationSchema={signInSchema}
@@ -94,7 +93,7 @@ const SignIn = () => {
                 enableReinitialize,
               }) => (
                 <Form
-                  className={classes.formWpap}
+                  sx={classes.formWpap}
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
@@ -110,7 +109,6 @@ const SignIn = () => {
                     type="text"
                     autoComplete="username"
                     autoFocus
-                    // inputIcon={<EmailOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.username && touched.username
                         ? errors.username
@@ -129,7 +127,6 @@ const SignIn = () => {
                     id="password"
                     placeholder="password"
                     autoComplete="current-password"
-                    // inputIcon={<LockOutlinedIcon className={classes.icon} />}
                     helperText={
                       errors.password && touched.password
                         ? errors.password
@@ -138,16 +135,15 @@ const SignIn = () => {
                     component={CustomPassword}
                     sx={sxTheming}
                   />
-                  <div className={classes.containerCheck}>
-                    <a href="/" className={classes.linkBold}>
+                  <div style={classes.containerCheck}>
+                    <a href="/" style={classes.linkBold}>
                       Forgot your password?
                     </a>
                   </div>
                   <Button
-                    className={classes.button}
                     type="submit"
                     fullWidth
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ ...classes.button, mt: 3, mb: 2 }}
                   >
                     Sign In
                   </Button>

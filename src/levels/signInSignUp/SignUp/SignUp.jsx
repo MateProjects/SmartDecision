@@ -78,22 +78,22 @@ const SignUp = () => {
           // alignItems: "center",
           // marginTop: "220px",
           // }}
-          className={classes.boxStyle}
+          sx={classes.boxStyle}
         >
-          <Typography className={classes.title} component="h1" variant="h2">
+          <Typography sx={classes.title} component="h1" variant="h2">
             Create Account
           </Typography>
 
-          <div className={classes.imgCont}>
-            <FacebookIcon className={classes.iconImg} />
-            <GoogleIcon className={classes.iconImg} />
+          <div style={classes.imgCont}>
+            <FacebookIcon sx={classes.iconImg} />
+            <GoogleIcon sx={classes.iconImg} />
           </div>
 
-          <Typography className={classes.text} component="h2">
+          <Typography sx={classes.text} component="h2">
             or use your email for registration
           </Typography>
 
-          <Box className={classes.formContainer} sx={{ mt: 1 }}>
+          <Box sx={{ ...classes.formContainer, mt: 1 }}>
             <Formik
               initialValues={initialValues}
               validationSchema={signUpSchema}
@@ -110,7 +110,7 @@ const SignUp = () => {
                 enableReinitialize,
               }) => (
                 <Form
-                  className={classes.formWrap}
+                  sx={classes.formWrap}
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
@@ -125,15 +125,14 @@ const SignUp = () => {
                     // label="First Name"
                     autoComplete="name"
                     autoFocus
-                    inputIcon={<PermIdentityIcon className={classes.icon} />}
+                    inputIcon={<PermIdentityIcon sx={classes.icon} />}
                     helperText={
                       errors.username && touched.username
                         ? errors.username
                         : null
                     }
                     component={CustomField}
-                    className={classes.inputField}
-                    sx={sxTheming}
+                    sx={{ ...classes.inputField, ...sxTheming }}
                   />
                   <Field
                     value={values.email}
@@ -147,13 +146,12 @@ const SignUp = () => {
                     type="text"
                     autoComplete="email"
                     autoFocus
-                    inputIcon={<EmailOutlinedIcon className={classes.icon} />}
+                    inputIcon={<EmailOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.email && touched.email ? errors.email : null
                     }
                     component={CustomField}
-                    className={classes.inputField}
-                    sx={sxTheming}
+                    sx={{ ...classes.inputField, ...sxTheming }}
                   />
                   <Field
                     value={values.password}
@@ -165,15 +163,14 @@ const SignUp = () => {
                     id="password"
                     placeholder="Password"
                     autoComplete="current-password"
-                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.password && touched.password
                         ? errors.password
                         : null
                     }
                     component={CustomPassword}
-                    className={classes.inputField}
-                    sx={sxTheming}
+                    sx={{ ...classes.inputField, ...sxTheming }}
                   />
                   <Field
                     value={values.repeatPassword}
@@ -185,23 +182,22 @@ const SignUp = () => {
                     id="repeatPassword"
                     placeholder="Repeat Password"
                     autoComplete="current-password"
-                    inputIcon={<LockOutlinedIcon className={classes.icon} />}
+                    inputIcon={<LockOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.repeatPassword && touched.repeatPassword
                         ? errors.repeatPassword
                         : null
                     }
                     component={CustomPassword}
-                    className={classes.inputField}
-                    sx={sxTheming}
+                    sx={{...classes.inputField, ...sxTheming}}
                   />
-                  <div className={classes.containerCheck}>
+                  <div style={classes.containerCheck}>
                     <FormControlLabel
-                      className={classes.Check}
+                      sx={classes.Check}
                       control={<Checkbox color="primary" value="remember" />}
                       label="I agree to the"
                     />
-                    <a href="/" className={classes.linkBold}>
+                    <a href="/" style={classes.linkBold}>
                       Terms of User
                     </a>
                   </div>
@@ -209,8 +205,7 @@ const SignUp = () => {
                   <Button
                     type="submit"
                     fullWidth
-                    className={classes.button}
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ ...classes.button, mt: 3, mb: 2 }}
                   >
                     Sign Up
                   </Button>

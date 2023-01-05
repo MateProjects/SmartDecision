@@ -14,7 +14,7 @@ const SimpleButton = ({
     <Button
       type={type}
       disabled={disabled}
-      className={!className ? classes.buttonStyles : className}
+      sx={!className ? classes.buttonStyles : className}
       {...props}
     >
       {name}

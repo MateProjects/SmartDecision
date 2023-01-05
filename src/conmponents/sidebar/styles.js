@@ -1,5 +1,6 @@
-import { makeStyles } from  '@mui/styles';
-const useStyles = makeStyles((theme) => ({
+import theme from "../../config/theme/theme";
+
+const useStyles = () => ({
   root: {
     flexGrow: 1,
     background:
@@ -113,6 +114,6 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     color: "#949494",
   },
-}));
+});
 
 export default useStyles;

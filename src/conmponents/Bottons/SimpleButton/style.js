@@ -1,7 +1,6 @@
-// import { makeStyles } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import theme from "../../../config/theme/theme";
 
-export const simpleButtonStyles = makeStyles((theme) => ({
+export const simpleButtonStyles = () => ({
   buttonStyles: {
     margin: 0,
     width: 123,
@@ -10,4 +9,4 @@ export const simpleButtonStyles = makeStyles((theme) => ({
     color: theme.palette.primary.inverse,
     backgroundColor: theme.palette.primary.main,
   },
-}));
+});

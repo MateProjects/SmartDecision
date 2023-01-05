@@ -128,7 +128,7 @@ const LogoIcon = ({ style = {}, ...props }) => (
         y2="38.3202"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#49A09D" />
+        <stop stopColor="#49A09D" />
         <stop offset="0.149" stopColor="#4A989B" />
         <stop offset="0.375" stopColor="#4E8396" />
         <stop offset="0.65" stopColor="#54618E" />

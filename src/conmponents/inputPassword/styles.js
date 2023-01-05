@@ -1,5 +1,6 @@
-import { makeStyles } from  '@mui/styles';
-const useStyles = makeStyles((theme) => ({
+import theme from "../../config/theme/theme";
+
+const useStyles = () => ({
   root: {
     "& .MuiTextField-root": {
       "& .Mui-focused $notchedOutline": {
@@ -7,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "& > div.Mui-focused .MuiIconButton-label": {
-      // :focused.MuiIconButton-label
       color: theme.palette.primary.main,
     },
   },
@@ -16,6 +16,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main,
     },
   },
-}));
+});
 
 export default useStyles;

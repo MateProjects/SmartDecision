@@ -1,13 +1,7 @@
-import { makeStyles } from "@mui/styles";
+import theme from "../../../config/theme/theme";
 
-export const startPageStyles = makeStyles((theme) => ({
-  sideContainer: {
-
-  },
-  dynamicSide: {
-
-  },
-  formSide: {
-    
-  }
-}))
+export const startPageStyles = () => ({
+  sideContainer: {},
+  dynamicSide: {},
+  formSide: {},
+});

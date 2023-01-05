@@ -27,7 +27,7 @@ export const SearchInput = (props) => {
     <Input
       onChange={setRequest}
       placeholder="Search"
-      startAdornment={<SearchIcon className={className} />}
+      startAdornment={<SearchIcon sx={className} />}
       // value={requestInput}
     />
   );

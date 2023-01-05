@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import styled, { keyframes } from "styled-components";
 import { Box } from "@material-ui/core";
 import { useNavigate } from "react-router";
 import clsx from "clsx";
@@ -11,25 +12,63 @@ import LogoIcon from "../../image/icons/Logo";
 import GlobalIcon from "../../image/icons/Global";
 import InfoIcon from "../../image/icons/InfoIcon";
 import AccountIcon from "../../image/icons/AccountIcon";
-import { layoutStyles } from "./styles";
+import { useLayoutStyles } from "./styles";
+
+const showBar = keyframes`
+from {
+  width: 70,
+  transition: width .75s ease-out,
+}
+
+to {
+  width: 210,
+  transition: width .75s ease-out,
+},
+`;
+
+const ShowBarBox = styled.div`
+  animation: ${(props) => props.showBarState && showBar} 0.75s ease 0s 1 normal;
+`;
+
+const LeftSideLogoContainer = styled.div`
+  style: ${(props) => props.style};
+`;
+
+const IconContainerStyled = styled.div`
+  style: ${(props) => props.style};
+`;
 
 const Layout = ({ setRole, children }) => {
   const [isHiddenBar, setIsHiddenBar] = useState(1);
-  const classes = layoutStyles();
+  const [isHiddenBarTest, setIsHiddenBarTest] = useState(false);
+  const classes = useLayoutStyles();
   const navigate = useNavigate();
 
   const oddOrEven = isHiddenBar % 2;
 
-  const cnLayout = clsx({
-    [classes.leftSideMenuInit]: isHiddenBar === 1,
-    [classes.leftSideMenu]: isHiddenBar > 1 && Boolean(oddOrEven),
-    [classes.leftSideMenuAnimation]: isHiddenBar > 1 && !Boolean(oddOrEven),
-  });
+  // const cnLayout = clsx({
+  //   [classes.leftSideMenuInit]: isHiddenBar === 1,
+  //   [classes.leftSideMenu]: isHiddenBar > 1 && Boolean(oddOrEven),
+  //   [classes.leftSideMenuAnimation]: isHiddenBar > 1 && !Boolean(oddOrEven),
+  // });
 
-  const cnLogo = clsx({
-    [classes.logoContainer]: !Boolean(oddOrEven),
-    [classes.logoWithoutText]: Boolean(oddOrEven),
-  });
+  const cnLayout =
+    isHiddenBar === 1
+      ? classes.leftSideMenuInit
+      : isHiddenBar > 1 && Boolean(oddOrEven)
+      ? classes.leftSideMenu
+      : isHiddenBar > 1 && !Boolean(oddOrEven)
+      ? classes.leftSideMenuAnimation
+      : classes.leftSideMenuInit;
+
+  // const cnLogo = clsx({
+  //   [classes.logoContainer]: !Boolean(oddOrEven),
+  //   [classes.logoWithoutText]: Boolean(oddOrEven),
+  // });
+
+  const cnLogo = !Boolean(oddOrEven)
+    ? classes.logoContainer
+    : classes.logoWithoutText;
 
   const actionIcons = [
     {
@@ -50,10 +89,12 @@ const Layout = ({ setRole, children }) => {
 
   const handleHideSideBar = () => {
     setIsHiddenBar((prev) => prev + 1);
+    setIsHiddenBarTest(!isHiddenBarTest);
   };
 
   const handleCloseLeftSideBar = (e) => {
     setIsHiddenBar(3);
+    setIsHiddenBarTest(false);
   };
 
   // NOTE: this should be wrapped into useMemo hook
@@ -61,12 +102,16 @@ const Layout = ({ setRole, children }) => {
   const levelMenu = menus("user")["user"];
 
   return (
-    <Box className={classes.layoutContainer}>
-      <Box className={cnLayout}>
-        <div className={cnLogo}>
+    <Box sx={classes.layoutContainer}>
+      <ShowBarBox
+        style={cnLayout}
+        showBarState={isHiddenBarTest}
+        oddOrEven={oddOrEven}
+      >
+        <LeftSideLogoContainer style={cnLogo}>
           <LogoIcon onClick={handleHideSideBar} />
-          <span className={classes.logoText}>{"Rylex"}</span>
-        </div>
+          <span style={classes.logoText}>{"Rylex"}</span>
+        </LeftSideLogoContainer>
         {levelMenu.map((route) => (
           <MenuItem
             title={route?.title}
@@ -77,25 +122,22 @@ const Layout = ({ setRole, children }) => {
             hideDescription={!Boolean(oddOrEven)}
           />
         ))}
-      </Box>
-      <Box
-        className={classes.contentContainer}
-        onClick={handleCloseLeftSideBar}
-      >
-        <Box className={classes.topbarContainer}>
-          <div className={classes.topbarBreadcrambs}>{"Tenants"}</div>
-          <div className={classes.topbarActions}>
+      </ShowBarBox>
+      <Box sx={classes.contentContainer} onClick={handleCloseLeftSideBar}>
+        <Box sx={classes.topbarContainer}>
+          <div style={classes.topbarBreadcrambs}>{"Tenants"}</div>
+          <div style={classes.topbarActions}>
             {actionIcons.map((icons, indx) => (
-              <div className={classes.iconContainer} key={indx}>
+              <IconContainerStyled style={classes.iconContainer} key={indx}>
                 {icons?.icon}
-                <span className={classes.text}>
+                <span style={classes.text}>
                   {icons?.text ? icons?.text : null}
                 </span>
-              </div>
+              </IconContainerStyled>
             ))}
           </div>
         </Box>
-        <Box className={classes.content}>{children}</Box>
+        <Box sx={classes.content}>{children}</Box>
       </Box>
     </Box>
   );

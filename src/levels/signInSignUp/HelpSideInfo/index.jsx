@@ -6,18 +6,18 @@ const HelpSideInfo = ({ classes, status = "" }) => {
       ? "To keep connected with us please login with your personal info"
       : "Enter your personal detailsand start journey with us";
   return (
-    <div className={classes.welcomeSide}>
+    <div style={classes.welcomeSide}>
       {status === "welcome" ? (
         <div>
           <p1>{"Welcome Back!"}</p1>
           <span>{subText}</span>
-          <SimpleButton name="Sign In"/>
+          <SimpleButton name="Sign In" />
         </div>
       ) : (
         <div>
           <p1>{"Welcome Back!"}</p1>
           <span>{subText}</span>
-          <SimpleButton name="Sign Up"/>
+          <SimpleButton name="Sign Up" />
         </div>
       )}
     </div>
