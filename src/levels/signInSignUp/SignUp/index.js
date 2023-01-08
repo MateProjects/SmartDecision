@@ -1,6 +1,7 @@
+import { makeStyles } from "@mui/styles";
 import theme from "../../../config/theme/theme";
 
-const useStyles = () => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.secondary.main,
@@ -111,7 +112,7 @@ const useStyles = () => ({
       borderColor: "blue",
     },
   },
-});
+}));
 
 export default useStyles;
 

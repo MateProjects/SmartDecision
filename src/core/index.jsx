@@ -12,7 +12,7 @@ const RegisterForm = lazy(() =>
 );
 const SignUp = lazy(() => import("../levels/signInSignUp/SignUp/SignUp"));
 const Tenants = lazy(() => import("../levels/user/Tenants/Tenants"));
-const SearchTenants = lazy(() => import("../levels/user/Search/index"))
+const SearchTenants = lazy(() => import("../levels/user/Search/index"));
 
 const publicRoutes = [
   { path: publicPaths.login, Component: <RegisterForm /> },

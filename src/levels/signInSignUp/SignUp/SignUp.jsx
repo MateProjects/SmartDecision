@@ -70,15 +70,15 @@ const SignUp = () => {
     <>
       <Grid item xs={12} sm={8} md={7} component={Paper} elevation={6} square>
         <Box
-          // sx={{
-          // my: 8,
-          // mx: 4,
-          // display: "flex",
-          // flexDirection: "column",
-          // alignItems: "center",
-          // marginTop: "220px",
-          // }}
-          sx={classes.boxStyle}
+        // sx={{
+        // my: 8,
+        // mx: 4,
+        // display: "flex",
+        // flexDirection: "column",
+        // alignItems: "center",
+        // marginTop: "220px",
+        // }}
+        // sx={classes.boxStyle}
         >
           <Typography sx={classes.title} component="h1" variant="h2">
             Create Account
@@ -89,9 +89,9 @@ const SignUp = () => {
             <GoogleIcon sx={classes.iconImg} />
           </div>
 
-          <Typography sx={classes.text} component="h2">
+          {/* <Typography sx={classes.text} component="h2">
             or use your email for registration
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ ...classes.formContainer, mt: 1 }}>
             <Formik
