@@ -4,42 +4,12 @@ import SignIn from "../../../levels/signInSignUp/SignIn/SignIn";
 import SignUp from "../../../levels/signInSignUp/SignUp/SignUp";
 import Decorator from "../../../conmponents/decorator/decorator";
 
-// import FormLogin from "../../../conmponents/toggleForm/FormLogin";
-// import FormSignup from "../../../conmponents/toggleForm/FormSignup";
-// import Overlay from "../../../conmponents/toggleForm/Overlay";
-
-// import Container from "../../../conmponents/toggleForm/Container";
-
-// import useToggle, {
-//   STATE_LOG_IN,
-// } from "../../../conmponents/toggleForm/useToggle";
-
 const RegisterForm = () => {
-  // const [mode, toggleMode] = useToggle(initialState);
-
-  // return (
-  //   <Container pose={mode === STATE_LOG_IN ? "signup" : "login"}>
-  //     <div className="container__form container__form--one">
-  //       <FormLogin mode={mode} />
-  //     </div>
-  //     <div className="container__form container__form--two">
-  //       <FormSignup mode={mode} />
-  //     </div>
-  //     <Overlay toggleMode={toggleMode} mode={mode} />
-  //   </Container>
-  // );
   const [signIn, toggle] = React.useState(true);
   return (
     <Components.Container>
       <Components.SignUpContainer signinIn={signIn}>
         <SignUp />
-        {/* <Components.Form>
-          <Components.Title>Create Account</Components.Title>
-          <Components.Input type="text" placeholder="Name" />
-          <Components.Input type="email" placeholder="Email" />
-          <Components.Input type="password" placeholder="Password" />
-          <Components.Button>Sign Up</Components.Button>
-        </Components.Form> */}
       </Components.SignUpContainer>
 
       <Components.SignInContainer signinIn={signIn}>
