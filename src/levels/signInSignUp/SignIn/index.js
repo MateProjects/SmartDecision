@@ -1,6 +1,7 @@
+import { makeStyles } from "@mui/styles";
 import theme from "../../../config/theme/theme";
 
-const useStyles = () => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.secondary.main,
@@ -99,6 +100,18 @@ const useStyles = () => ({
     fontSize: theme.typography.caption.fontSize,
     fontWeight: theme.typography.caption.fontWeight,
   },
+  inputField: {
+    width: "100%",
+    backgroundColor: theme.palette.primary.inputBackground,
+    // caretColor: theme.palette.primary.main,
+
+    "& > div > fieldset:hover": {
+      borderColor: "blue",
+    },
+    // "& > div:hover": {
+    //   borderColor: "blue",
+    // },
+  },
   icon: {
     color: theme.palette.commonColors.grey,
   },
@@ -110,7 +123,7 @@ const useStyles = () => ({
     alignItems: "center",
     paddingTop: "220px",
   },
-});
+}));
 export default useStyles;
 
 export const sxTheming = {

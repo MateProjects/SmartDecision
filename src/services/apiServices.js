@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// const url =
+//   "https://cors-anywhere.herokuapp.com/https://api-shark.herokuapp.com/";
 const url = "https://api-shark.herokuapp.com/";
 
 axios.defaults.baseURL = url;
@@ -8,7 +10,19 @@ class ApiService {
   //===================  auth ===================
 
   register(newUser) {
-    return axios.post("/signup", newUser);
+    debugger;
+    return axios.post(
+      "/signup",
+      newUser
+      //  {
+      //   headers: {
+      //     // Origin: "https://example.com",
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "*",
+      //     // "Access-Control-Allow-Headers": "*",
+      //   },
+      // }
+    );
   }
 
   login(userCredentials) {
