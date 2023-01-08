@@ -44,13 +44,6 @@ const RegisterForm = () => {
 
       <Components.SignInContainer signinIn={signIn}>
         <SignIn />
-        {/* <Components.Form>
-          <Components.Title>Sign in</Components.Title>
-          <Components.Input type="email" placeholder="Email" />
-          <Components.Input type="password" placeholder="Password" />
-          <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Components.Button>Sigin In</Components.Button>
-        </Components.Form> */}
       </Components.SignInContainer>
 
       <Components.OverlayContainer signinIn={signIn}>
@@ -76,7 +69,6 @@ const RegisterForm = () => {
               Sigin Up
             </Components.GhostButton>
           </Components.RightOverlayPanel>
-          {/* </Decorator> */}
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>

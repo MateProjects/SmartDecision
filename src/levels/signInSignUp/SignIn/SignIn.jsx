@@ -303,6 +303,7 @@ const SignIn = ({ initialState = STATE_LOG_IN }) => {
             my: 8,
             mx: 4,
             display: "flex",
+            boxShadow: "none",
             flexDirection: "column",
             alignItems: "center",
             marginTop: "280px",
@@ -325,6 +326,7 @@ const SignIn = ({ initialState = STATE_LOG_IN }) => {
             <Formik
               initialValues={initialValues}
               validationSchema={signInSchema}
+              validateOnBlur
               onSubmit={onSubmit}
               enableReinitialize
             >
@@ -336,6 +338,9 @@ const SignIn = ({ initialState = STATE_LOG_IN }) => {
                 errors,
                 touched,
                 enableReinitialize,
+                handleBlur,
+                isValid,
+                dirty,
               }) => (
                 <Form
                   className={classes.formWpap}
@@ -361,6 +366,7 @@ const SignIn = ({ initialState = STATE_LOG_IN }) => {
                         : null
                     }
                     component={CustomField}
+                    className={classes.inputField}
                   />
                   <Field
                     value={values.password}
@@ -379,6 +385,7 @@ const SignIn = ({ initialState = STATE_LOG_IN }) => {
                         : null
                     }
                     component={CustomPassword}
+                    className={classes.inputField}
                   />
                   <div className={classes.containerCheck}>
                     <a href="/" className={classes.linkBold}>

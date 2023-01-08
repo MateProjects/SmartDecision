@@ -122,7 +122,6 @@ const SignUp = () => {
                     placeholder="Name"
                     type="text"
                     id="username"
-                    // label="First Name"
                     autoComplete="name"
                     autoFocus
                     inputIcon={<PermIdentityIcon sx={classes.icon} />}
@@ -189,7 +188,7 @@ const SignUp = () => {
                         : null
                     }
                     component={CustomPassword}
-                    sx={{...classes.inputField, ...sxTheming}}
+                    sx={{ ...classes.inputField, ...sxTheming }}
                   />
                   <div style={classes.containerCheck}>
                     <FormControlLabel
