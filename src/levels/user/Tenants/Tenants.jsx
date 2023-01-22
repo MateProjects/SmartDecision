@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import CustomField from "../../../conmponents/input/InputField";
+import CustomField from "conmponents/input/InputField";
 import AddButton from "../../../conmponents/Bottons/AddButton/AddButton";
 import Table from "../../../conmponents/table/Table";
 
@@ -18,6 +18,57 @@ const InputField = styled.div`
 const Tenants = () => {
   const classes = tenantsStyle();
 
+  const testData = [
+    {
+      name: "Alex",
+      id: "Tbs_1",
+      type: "enter",
+    },
+    {
+      name: "Bob",
+      id: "Tbs_2",
+      type: "type_c",
+    },
+    {
+      name: "Liam",
+      id: "Tbs_3",
+      type: "enter",
+    },
+    {
+      name: "Grim",
+      id: "Tbs_4",
+      type: "type_c",
+    },
+  ];
+
+  const columns = [
+    {
+      title: "№",
+      cellStyle: () => ({
+        width: "7%",
+      }),
+      render: (rowData) => {
+        console.log("rowData", rowData?.tableData?.id);
+        return <>{rowData?.tableData?.id + 1}</>;
+      },
+    },
+    {
+      title: "ID",
+      field: "id",
+      render: (rowData) => {
+        return <span style={classes.idStyles}>{rowData.id}</span>;
+      },
+    },
+    {
+      title: "Name",
+      field: "name",
+    },
+    {
+      title: "Type",
+      field: "type",
+    },
+  ];
+
   return (
     <div style={classes.container}>
       <ActionBar style={classes.actionBar}>
@@ -31,7 +82,7 @@ const Tenants = () => {
         </InputField>
         <AddButton disabled={false} className={classes.buttonStyles} />
       </ActionBar>
-      <div style={classes.tableWrapper}>{<Table />}</div>
+      {<Table data={testData} columns={columns} />}
     </div>
   );
 };

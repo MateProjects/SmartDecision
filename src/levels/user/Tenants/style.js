@@ -8,6 +8,7 @@ export const tenantsStyle = () => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: 24,
     // [theme.breakpoints.down(768)]: {
     //   flexDirection: "column",
     // },
@@ -37,6 +38,9 @@ export const tenantsStyle = () => ({
     "@media (max-width: 768px)": {
       alignSelf: "flex-end",
     },
+  },
+  idStyles: {
+    color: theme.palette.primary.main,
   },
 });
 
