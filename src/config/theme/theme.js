@@ -3,14 +3,15 @@ import { createTheme } from "@mui/material/styles";
 let theme = createTheme({
   palette: {
     primary: {
-      main: "#1AAA8D",
-      inverse: "#FFFFFF",
-      inputBackground: "#F1FAF7",
-      border: "#C0CECA",
-      backgroundLightGreen: "#F1FAF7"
+      main: "#1aaa8d",
+      inverse: "#ffffff",
+      inputBackground: "#f1faf7",
+      border: "#c0ceca",
+      backgroundLightGreen: "#f1faf7",
+      textBlack: "#0a0b0b",
     },
     secondary: {
-      main: "#30B78D",
+      main: "#30b78d",
     },
     commonColors: {
       grey: "#949494",
@@ -65,8 +66,8 @@ let theme = createTheme({
       sm: 768,
       md: 920,
       lg: 1200,
-      xl: 1800
-    }
+      xl: 1800,
+    },
   },
 });
 
@@ -197,13 +198,42 @@ theme = createTheme(theme, {
         },
       },
     },
-    // MuiCssBaseline: {
-    //   styleOverrides: {
-    //     html: {
-    //       fontSize: 10
-    //     }
-    //   }
-    // },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
+      },
+    },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          "& > tr > th:first-child": {
+            borderRadius: "5px 0px 0px 0px",
+          },
+          "& > tr > th:last-child": {
+            borderRadius: "0px 5px 0px 0px",
+          },
+        },
+      },
+    },
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          "& > tr > td:first-child": {
+            borderLeft: `1px solid ${theme.palette.primary.border}`,
+            // borderRight: `1px solid ${theme.palette.primary.border}`,
+          },
+          // "& > tr > td:not(first-child)": {
+          //   borderRight: `1px solid ${theme.palette.primary.border}`,
+          // },
+          
+          "& :hover": {
+            backgroundColor: `${theme.palette.primary.inputBackground}`,
+          },
+        },
+      },
+    },
   },
 });
 
