@@ -63,7 +63,6 @@ const SignUp = () => {
   function onSubmit(values, { setStatus, setSubmitting }) {
     // event.preventDefault();
     setStatus();
-
     dispatch(ops.register(values));
   }
 
@@ -97,6 +96,7 @@ const SignUp = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={signUpSchema}
+              validateOnBlur
               onSubmit={onSubmit}
               enableReinitialize
             >
@@ -107,29 +107,32 @@ const SignUp = () => {
                 handleSubmit,
                 errors,
                 touched,
+                handleBlur,
                 enableReinitialize,
+                isValid,
+                dirty,
               }) => (
                 <Form
+                  type="submit"
                   sx={classes.formWpap}
                   onSubmit={handleSubmit}
                   enableReinitialize={enableReinitialize}
                 >
                   <Field
                     value={values.username}
-                    error={errors.username && touched.username}
                     onChange={handleChange}
                     name="username"
                     placeholder="Name"
-                    type="text"
-                    id="username"
                     label="First Name"
                     autoComplete="name"
                     autoFocus
                     inputIcon={<PermIdentityIcon sx={classes.icon} />}
+                    error={touched.username && errors.username ? true : false}
                     helperText={
-                      errors.username && touched.username
-                        ? errors.username
-                        : null
+                      touched.username && errors.username ? errors.username : ""
+                    }
+                    success={
+                      touched.username && !errors.username ? true : false
                     }
                     component={CustomField}
                   />
@@ -138,6 +141,7 @@ const SignUp = () => {
                     error={errors.email && touched.email}
                     fullWidth
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     id="email"
                     label="Email Address"
                     name="email"
@@ -156,11 +160,10 @@ const SignUp = () => {
                     error={errors.password && touched.password}
                     fullWidth
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     name="password"
                     label="Password"
-                    id="password"
                     placeholder="password"
-                    autoComplete="current-password"
                     inputIcon={<LockOutlinedIcon sx={classes.icon} />}
                     helperText={
                       errors.password && touched.password
@@ -174,9 +177,9 @@ const SignUp = () => {
                     error={errors.repeatPassword && touched.repeatPassword}
                     fullWidth
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     name="repeatPassword"
                     label="Password"
-                    id="repeatPassword"
                     placeholder="repeatPassword"
                     autoComplete="current-password"
                     inputIcon={<LockOutlinedIcon sx={classes.icon} />}

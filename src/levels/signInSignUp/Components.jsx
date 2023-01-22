@@ -4,11 +4,9 @@ export const Container = styled.div`
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  // position: relative;
-  // overflow: hidden;
-  // width: 678px;
-  // max-width: 100%;
-  // min-height: 400px;
+  position: relative;
+
+  min-height: 100vh;
 `;
 
 export const SignUpContainer = styled.div`
@@ -53,8 +51,9 @@ export const Form = styled.form`
   text-align: center;
 `;
 
-export const Title = styled.h1`
-  font-weight: bold;
+export const Title = styled.h2`
+  font-size: 48px;
+  font-weight: 800;
   margin: 0;
 `;
 
@@ -88,6 +87,9 @@ export const GhostButton = styled(Button)`
   background-color: transparent;
   border-color: #ffffff;
   z-index: 2;
+  height: 65px;
+  width: 280px;
+  border-radius: 40px;
 `;
 
 export const Anchor = styled.a`
@@ -110,10 +112,10 @@ export const OverlayContainer = styled.div`
 `;
 
 export const Overlay = styled.div`
-  background: #ff416c;
+  // background: #ff416c;
   // background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
   // background: linear-gradient(to right, #ff4b2b, #ff416c);
-  background:linear-gradient(to right, #1CA694 0%, 37.443944811820984%, #15AC88 74.88788962364197%, 87.44394481182098%, #30B78D 100%);  /* Gradient in RGBA */ linear-gradient(to right, rgba(28, 166, 148, 1) 0%, 37.443944811820984%, rgba(21, 172, 136, 1) 74.88788962364197%, 87.44394481182098%, rgba(48, 183, 141, 1) 100%);,
+   background:linear-gradient(to right, #1CA694 0%, 37.443944811820984%, #15AC88 74.88788962364197%, 87.44394481182098%, #30B78D 100%);  /* Gradient in RGBA */ linear-gradient(to right, rgba(28, 166, 148, 1) 0%, 37.443944811820984%, rgba(21, 172, 136, 1) 74.88788962364197%, 87.44394481182098%, rgba(48, 183, 141, 1) 100%);,
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -121,6 +123,7 @@ export const Overlay = styled.div`
   position: relative;
   left: -100%;
   height: 100%;
+  // min-height: 100vh;
   width: 200%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
@@ -137,9 +140,13 @@ export const OverlayPanel = styled.div`
   text-align: center;
   top: 0;
   height: 100%;
+  // min-height: 100vh;
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+  :first-child {
+    align-self: flex-start !important;
+  }
 `;
 
 export const LeftOverlayPanel = styled(OverlayPanel)`
@@ -156,9 +163,20 @@ export const RightOverlayPanel = styled(OverlayPanel)`
 `;
 
 export const Paragraph = styled.p`
-  font-size: 14px;
-  font-weight: 100;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  padding-left: 13px;
+`;
+
+export const LogoText = styled.h2`
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10;
 `;

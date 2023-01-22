@@ -1,14 +1,14 @@
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import theme from "../../../config/theme/theme";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = () => ({
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
     backgroundColor: theme.palette.secondary.main,
   },
   title: {
     "&&": {
-      flexGrow: 1,
+      // flexGrow: 1,
       color: theme.palette.secondary.main,
       fontFamily: theme.typography.h2,
       fontSize: theme.typography.h2.fontSize,
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     "&&": {
-      flexGrow: 1,
+      // flexGrow: 1,
       color: "#949494",
     },
   },
@@ -54,16 +54,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.caption.fontSize,
     fontWeight: theme.typography.caption.fontWeight,
   },
-  formWrap: {
-    width: "100%",
+  formWpap: {
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "column",
   },
   formContainer: {
     margin: 0,
     // padding:0,
+    mt: 1,
     width: "100%",
     maxWidth: "380px",
     display: "flex",
@@ -74,12 +73,16 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
   button: {
-    height: "65px",
+    height: 65,
     width: 280,
-    color: theme.palette.primary.inverse,
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: 30,
+    // color: theme.palette.primary.inverse,
+    // backgroundColor: theme.palette.primary.disabled,
+    borderRadius: 40,
   },
   containerCheck: {
     display: "flex",
@@ -96,23 +99,33 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     color: "#949494",
   },
+  grid: {
+    boxShadow: "none",
+    // padding: "0 100px",
+  },
+  b: {
+    cursor: "pointer",
+  },
+  checkContainer: {
+    display: "flex",
+    marginTop: "10px",
+    marginBottom: "20px",
+  },
   boxStyle: {
-    my: 8,
-    mx: 4,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: "220px",
+    // paddingTop: "10%",
   },
   inputField: {
     width: "100%",
-    backgroundColor: theme.palette.primary.inputBackground,
+    //backgroundColor: theme.palette.primary.inputBackground,
 
     "& > div > fieldset:hover": {
       borderColor: "blue",
     },
   },
-}));
+});
 
 export default useStyles;
 
