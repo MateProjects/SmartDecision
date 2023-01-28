@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import CustomField from "conmponents/input/InputField";
-import AddButton from "../../../conmponents/Bottons/AddButton/AddButton";
-import Table from "../../../conmponents/table/Table";
+import CustomField from "../../../components/input/InputField";
+import AddButton from "../../../components/Buttons/AddButton/AddButton";
+import Table from "../../../components/table/Table";
 
 import SearchIcon from "../../../image/icons/SearchIcon";
 import { tenantsStyle, sxTheming } from "./style";

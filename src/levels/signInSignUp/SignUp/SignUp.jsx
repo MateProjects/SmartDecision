@@ -22,44 +22,45 @@ import GoogleIcon from "../../../image/icons/GoogleIcon";
 import PermIdentityIcon from "../../../image/icons/PermIdentityIcon";
 import EmailOutlinedIcon from "../../../image/icons/EmailOutlinedIcon";
 import LockOutlinedIcon from "../../../image/icons/LockOutlinedIcon";
-
+import { useTranslation } from "react-i18next";
 import useStyles from ".";
 import { sxTheming } from ".";
-
-const signUpSchema = yup.object().shape({
-  username: yup
-    .string()
-    .typeError("Need to be string")
-    .required("This field is required."),
-  email: yup
-    .string()
-    .email("Invalid email")
-    .typeError("Need to be string")
-    .required("This field is required."),
-  password: yup
-    .string()
-    .typeError("Need to be string")
-    .min(6, "Password is too short.")
-    .max(20, "Password is too long.")
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
-    )
-    .required("This field is required."),
-  repeatPassword: yup.string().when("password", {
-    is: (val) => (val && val.length > 0 ? true : false),
-    then: yup
-      .string()
-      .typeError("Need to be string")
-      .oneOf([yup.ref("password")], "Both password need to be the same")
-      .required("This field is required."),
-  }),
-});
 
 const SignUp = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [click, setClick] = useState(false);
+  const { t } = useTranslation();
+
+  const signUpSchema = yup.object().shape({
+    username: yup.string().typeError("Need to be string").required(t("nec")),
+    email: yup
+      .string()
+      .email("Invalid email")
+      .required(t("nec"))
+      .typeError("Need to be string")
+      .required("This field is required."),
+    password: yup
+      .string()
+      .typeError("Need to be string")
+
+      .min(6, "Password is too short.")
+      .max(20, "Password is too long.")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      )
+      .required("This field is required."),
+    repeatPassword: yup.string().when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: yup
+        .string()
+        .typeError("Need to be string")
+        .oneOf([yup.ref("password")], "Both password need to be the same")
+        .required("This field is required."),
+    }),
+  });
+
   const initialValues = {
     username: "",
     email: "",

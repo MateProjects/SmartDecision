@@ -50,7 +50,7 @@ const CustomField = ({
       InputProps={{
         startAdornment: (
           <InputAdornment position="start" className={startClass}>
-            {!field.value ? inputIcon : ""}
+            {!field?.value ? inputIcon : ""}
           </InputAdornment>
         ),
       }}
