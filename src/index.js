@@ -9,13 +9,13 @@ import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import theme from "./config/theme/theme";
 import App from "./core";
-
+import "./i18n";
 
 import "./index.css";
 
-const { createRoot } = ReactDOM
+const { createRoot } = ReactDOM;
 
-const container = document.getElementById('root')
+const container = document.getElementById("root");
 
 const root = createRoot(container);
 

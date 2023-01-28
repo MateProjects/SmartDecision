@@ -7,7 +7,7 @@ import clsx from "clsx";
 import useWindowSize from "../../hooks/useViewPort";
 import { menus } from "./menuItems";
 import MenuItem from "./MenuItem";
-
+import HeaderComponent from "../Header";
 import LogoIcon from "../../image/icons/Logo";
 import GlobalIcon from "../../image/icons/Global";
 import InfoIcon from "../../image/icons/InfoIcon";
@@ -124,7 +124,7 @@ const Layout = ({ setRole, children }) => {
         ))}
       </ShowBarBox>
       <Box sx={classes.contentContainer} onClick={handleCloseLeftSideBar}>
-        <Box sx={classes.topbarContainer}>
+        {/* <Box sx={classes.topbarContainer}>
           <div style={classes.topbarBreadcrambs}>{"Tenants"}</div>
           <div style={classes.topbarActions}>
             {actionIcons.map((icons, indx) => (
@@ -136,7 +136,8 @@ const Layout = ({ setRole, children }) => {
               </IconContainerStyled>
             ))}
           </div>
-        </Box>
+        </Box> */}
+        <HeaderComponent />
         <Box sx={classes.content}>{children}</Box>
       </Box>
     </Box>

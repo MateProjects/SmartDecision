@@ -1,5 +1,12 @@
 import { createTheme } from "@mui/material/styles";
 
+// export default {
+//   gradient: 'linear-gradient(to right, #FF4B2B, #FF416C)',
+//   color: {
+//     brand: '#FF4B2B'
+//   }
+// }
+
 let theme = createTheme({
   palette: {
     primary: {
@@ -9,6 +16,7 @@ let theme = createTheme({
       border: "#c0ceca",
       backgroundLightGreen: "#f1faf7",
       textBlack: "#0a0b0b",
+      disabled: "#D1D1D1",
     },
     secondary: {
       main: "#30b78d",
@@ -76,7 +84,7 @@ theme = createTheme(theme, {
     MuiFilledInput: {
       styleOverrides: {
         root: {
-          backgroundColor: theme.palette.primary.main,
+          background: theme.palette.primary.main,
         },
       },
     },
@@ -107,13 +115,65 @@ theme = createTheme(theme, {
             backgroundColor: "#08795A",
             color: "white",
           },
+          "&:disabled": {
+            color: "inherit",
+            '&[type="submit"]': {
+              background: theme.palette.primary.disabled,
+              color: theme.palette.primary.inverse,
+            },
+          },
         },
       },
     },
+    // MuiButton: {
+    //   root: {
+    //     fontSize: '1.6rem',
+    //     textTransform: 'none',
+    //     lineHeight: '1.7rem',
+    //     '@media (max-width: 767px)': {
+    //       fontSize: '1.4rem'
+    //     },
+    //     '&$disabled': {
+    //       color: 'inherit',
+    //       '&[type="submit"]': {
+    //         background: palette.primary.light,
+    //         color: palette.primary.inverse
+    //       }
+    //     }
+    //   },
+    //   outlined: {
+    //     padding: '10px 23px',
+    //     color: '#828282'
+    //   },
+    //   text: {
+    //     padding: '12px 28px',
+    //     backgroundColor: palette.primary.main,
+    //     color: palette.primary.inverse,
+    //     fontWeight: '500',
+    //     lineHeight: '1em',
+    //     textTransform: 'none',
+    //     whiteSpace: 'nowrap',
+    //     '@media (max-width: 767px)': {
+    //       fontSize: '1.4rem'
+    //     },
+    //     '&[type="submit"]:hover': {
+    //       backgroundColor: palette.primary.hover
+    //     }
+    //   },
+    //   textPrimary: {
+    //     color: '#fff',
+    //     '&:hover': {
+    //       backgroundColor: palette.primary.hover
+    //     },
+    //     '&:disabled': {
+    //       backgroundColor: '#E6EDF1',
+    //       color: '#828282'
+    //     }
+    //   }
+    // },
     MuiInputBase: {
       styleOverrides: {
         root: {
-          background: "white",
           "&$focused .MuiIconButton": {
             borderColor: theme.palette.primary.main,
             backgroundColor: "white",
@@ -124,23 +184,9 @@ theme = createTheme(theme, {
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          backgroundColor: theme.palette.primary.backgroundLightGreen,
           fontFamily: "Mulish",
           caretColor: theme.palette.primary.main,
           maxHeight: 52,
-
-          "& $notchedOutline": {
-            borderColor: "transparent",
-            backgroundColor: "transparent",
-          },
-          "&:hover $notchedOutline": {
-            borderColor: "transparent",
-            backgroundColor: "transparent",
-          },
-
-          "&$focused $notchedOutline": {
-            borderColor: theme.palette.primary.main,
-          },
         },
       },
     },
@@ -150,6 +196,12 @@ theme = createTheme(theme, {
           border: "none",
           borderRadius: 5,
           width: "100%",
+          "& .MuiOutlinedInput-root": {
+            background: theme.palette.primary.backgroundLightGreen,
+            "&:hover fieldset": {
+              borderColor: theme.palette.primary.main, // - Set the Input border when parent has :hover
+            },
+          },
 
           "&:hover": {
             borderColor: "transparent",
@@ -227,7 +279,7 @@ theme = createTheme(theme, {
           // "& > tr > td:not(first-child)": {
           //   borderRight: `1px solid ${theme.palette.primary.border}`,
           // },
-          
+
           "& :hover": {
             backgroundColor: `${theme.palette.primary.inputBackground}`,
           },

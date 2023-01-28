@@ -6,12 +6,16 @@ import IconButton from "@mui/material/IconButton";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@material-ui/icons/VisibilityOffOutlined";
 import useStyles from "./styles";
-
+import clsx from "clsx";
 const CustomPassword = ({
   name,
+  iconStart,
+  iconEnd,
   placeholder,
-  error = null,
+  error,
   value,
+  root,
+  success,
   onChange,
   id,
   inputIcon,
@@ -45,7 +49,6 @@ const CustomPassword = ({
   return (
     <>
       <TextField
-        sx={classes.root}
         variant="outlined"
         placeholder={placeholder}
         id={id}
@@ -56,9 +59,13 @@ const CustomPassword = ({
         onBlur={() => setIsFocused(true)}
         type={values.showPassword ? "text" : "password"}
         helperText={error && helperText}
+        FormHelperTextProps={{
+          style: classes.helperText,
+        }}
         error={error}
         fullWidth
         InputProps={{
+          className: classes.textfield,
           startAdornment: isFocused ? (
             <InputAdornment position="start">{inputIcon}</InputAdornment>
           ) : null,

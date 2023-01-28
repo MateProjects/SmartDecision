@@ -51,11 +51,7 @@ const Sidebar = ({ flag, setinitForm }) => {
             {form === true ? "Hello, Friend!" : "Welcome Back!"}
           </h2>
 
-          <Typography
-            sx={classes.text}
-            component="h2"
-            variant="subtitle1"
-          >
+          <Typography sx={classes.text} component="h2" variant="subtitle1">
             {form === true
               ? "Enter your personal details and start journey with us!"
               : "To keep connected with us please login with your personal info"}

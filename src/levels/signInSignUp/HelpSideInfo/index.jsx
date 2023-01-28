@@ -1,4 +1,4 @@
-import SimpleButton from "../../../conmponents/Bottons/SimpleButton/SimpleButton";
+import SimpleButton from "../../../conmponents/Buttons/SimpleButton/SimpleButton";
 
 const HelpSideInfo = ({ classes, status = "" }) => {
   const subText =
